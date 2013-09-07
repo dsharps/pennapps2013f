@@ -1,5 +1,6 @@
-$(function(){
+var timerCount = 0;
 
+$(function(){
     // test
     var steps = [
         "Cook chicken for 5-10 hours.",
@@ -16,5 +17,4 @@ $(function(){
     for (var i = 0; i < steps.length; i++) {
         newStepView = new InstructionView({instruction: steps[i]});
     }
-
 });
