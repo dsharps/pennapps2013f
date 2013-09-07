@@ -48,7 +48,7 @@ exports.recipes = (req, res) ->
     if raw_queries.return_one?
       r = Math.floor(Math.random() * recipes.length)
       res.send recipes[r]
-    els
+    else
       res.send recipes 
 
 
