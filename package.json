@@ -9,7 +9,7 @@
     "express": "3.0.6",
     "js2coffee": "*",
     "socket.io": "*",
-    "underscore": "*",
+    "underscore": "~1.5.1",
     "hbs": "*",
     "mongoose": "*",
     "connect-mongo": "*",
