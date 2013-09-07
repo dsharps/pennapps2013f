@@ -1,0 +1,424 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kevin/nvm/v0.8.20/bin/node',
+1 verbose cli   '/Users/kevin/nvm/v0.8.20/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@1.2.11
+3 info using node@v0.8.20
+4 verbose read json /Users/kevin/projects/pennapps2013f/package.json
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/kevin/projects/pennapps2013f',
+6 verbose install   [ 'express',
+6 verbose install     'js2coffee',
+6 verbose install     'socket.io',
+6 verbose install     'underscore',
+6 verbose install     'hbs',
+6 verbose install     'mongoose',
+6 verbose install     'connect-mongo' ] ]
+7 verbose from cache /Users/kevin/projects/pennapps2013f/package.json
+8 info preinstall application-name@0.0.1
+9 verbose from cache /Users/kevin/projects/pennapps2013f/package.json
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'express@3.0.6', null ]
+12 verbose cache add name=undefined spec="express@3.0.6" args=["express@3.0.6",null]
+13 verbose parsed url { pathname: 'express@3.0.6',
+13 verbose parsed url   path: 'express@3.0.6',
+13 verbose parsed url   href: 'express@3.0.6' }
+14 verbose cache add name="express" spec="3.0.6" args=["express","3.0.6"]
+15 verbose parsed url { pathname: '3.0.6', path: '3.0.6', href: '3.0.6' }
+16 verbose addNamed [ 'express', '3.0.6' ]
+17 verbose addNamed [ '3.0.6', '3.0.6' ]
+18 verbose cache add [ 'js2coffee@*', null ]
+19 verbose cache add name=undefined spec="js2coffee@*" args=["js2coffee@*",null]
+20 verbose parsed url { pathname: 'js2coffee@*',
+20 verbose parsed url   path: 'js2coffee@*',
+20 verbose parsed url   href: 'js2coffee@*' }
+21 verbose cache add name="js2coffee" spec="*" args=["js2coffee","*"]
+22 verbose parsed url { pathname: '*', path: '*', href: '*' }
+23 verbose addNamed [ 'js2coffee', '*' ]
+24 verbose addNamed [ null, '' ]
+25 silly lockFile e902e1c0-express-3-0-6 express@3.0.6
+26 verbose lock express@3.0.6 /Users/kevin/.npm/e902e1c0-express-3-0-6.lock
+27 silly lockFile 736dc332-js2coffee js2coffee@*
+28 verbose lock js2coffee@* /Users/kevin/.npm/736dc332-js2coffee.lock
+29 verbose cache add [ 'socket.io@*', null ]
+30 verbose cache add name=undefined spec="socket.io@*" args=["socket.io@*",null]
+31 verbose parsed url { pathname: 'socket.io@*',
+31 verbose parsed url   path: 'socket.io@*',
+31 verbose parsed url   href: 'socket.io@*' }
+32 verbose cache add name="socket.io" spec="*" args=["socket.io","*"]
+33 verbose parsed url { pathname: '*', path: '*', href: '*' }
+34 verbose addNamed [ 'socket.io', '*' ]
+35 verbose addNamed [ null, '' ]
+36 silly lockFile 141fbf03-socket-io socket.io@*
+37 verbose lock socket.io@* /Users/kevin/.npm/141fbf03-socket-io.lock
+38 verbose cache add [ 'underscore@*', null ]
+39 verbose cache add name=undefined spec="underscore@*" args=["underscore@*",null]
+40 verbose parsed url { pathname: 'underscore@*',
+40 verbose parsed url   path: 'underscore@*',
+40 verbose parsed url   href: 'underscore@*' }
+41 verbose cache add name="underscore" spec="*" args=["underscore","*"]
+42 verbose parsed url { pathname: '*', path: '*', href: '*' }
+43 verbose addNamed [ 'underscore', '*' ]
+44 verbose addNamed [ null, '' ]
+45 silly lockFile 67e8a6a2-underscore underscore@*
+46 verbose lock underscore@* /Users/kevin/.npm/67e8a6a2-underscore.lock
+47 silly addNameRange { name: 'js2coffee', range: '', hasData: false }
+48 silly addNameRange { name: 'socket.io', range: '', hasData: false }
+49 silly addNameRange { name: 'underscore', range: '', hasData: false }
+50 verbose cache add [ 'hbs@*', null ]
+51 verbose cache add name=undefined spec="hbs@*" args=["hbs@*",null]
+52 verbose parsed url { pathname: 'hbs@*', path: 'hbs@*', href: 'hbs@*' }
+53 verbose cache add name="hbs" spec="*" args=["hbs","*"]
+54 verbose parsed url { pathname: '*', path: '*', href: '*' }
+55 verbose addNamed [ 'hbs', '*' ]
+56 verbose addNamed [ null, '' ]
+57 silly lockFile 31f44ea1-hbs hbs@*
+58 verbose lock hbs@* /Users/kevin/.npm/31f44ea1-hbs.lock
+59 verbose cache add [ 'mongoose@*', null ]
+60 verbose cache add name=undefined spec="mongoose@*" args=["mongoose@*",null]
+61 verbose parsed url { pathname: 'mongoose@*',
+61 verbose parsed url   path: 'mongoose@*',
+61 verbose parsed url   href: 'mongoose@*' }
+62 verbose cache add name="mongoose" spec="*" args=["mongoose","*"]
+63 verbose parsed url { pathname: '*', path: '*', href: '*' }
+64 verbose addNamed [ 'mongoose', '*' ]
+65 verbose addNamed [ null, '' ]
+66 silly lockFile e0858070-mongoose mongoose@*
+67 verbose lock mongoose@* /Users/kevin/.npm/e0858070-mongoose.lock
+68 verbose cache add [ 'connect-mongo@*', null ]
+69 verbose cache add name=undefined spec="connect-mongo@*" args=["connect-mongo@*",null]
+70 verbose parsed url { pathname: 'connect-mongo@*',
+70 verbose parsed url   path: 'connect-mongo@*',
+70 verbose parsed url   href: 'connect-mongo@*' }
+71 verbose cache add name="connect-mongo" spec="*" args=["connect-mongo","*"]
+72 verbose parsed url { pathname: '*', path: '*', href: '*' }
+73 verbose addNamed [ 'connect-mongo', '*' ]
+74 verbose addNamed [ null, '' ]
+75 silly lockFile fb805f9d-connect-mongo connect-mongo@*
+76 verbose lock connect-mongo@* /Users/kevin/.npm/fb805f9d-connect-mongo.lock
+77 silly addNameRange { name: 'hbs', range: '', hasData: false }
+78 silly addNameRange { name: 'mongoose', range: '', hasData: false }
+79 verbose url raw js2coffee
+80 verbose url resolving [ 'https://registry.npmjs.org/', './js2coffee' ]
+81 verbose url resolved https://registry.npmjs.org/js2coffee
+82 info trying registry request attempt 1 at 20:45:14
+83 verbose etag "DURCS2MDYNR28XV11VS9LZNQ7"
+84 http GET https://registry.npmjs.org/js2coffee
+85 silly addNameRange { name: 'connect-mongo', range: '', hasData: false }
+86 verbose url raw express/3.0.6
+87 verbose url resolving [ 'https://registry.npmjs.org/', './express/3.0.6' ]
+88 verbose url resolved https://registry.npmjs.org/express/3.0.6
+89 info trying registry request attempt 1 at 20:45:14
+90 verbose etag "9H475BT3MW1COD5SUEWTJSF2B"
+91 http GET https://registry.npmjs.org/express/3.0.6
+92 verbose url raw underscore
+93 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+94 verbose url resolved https://registry.npmjs.org/underscore
+95 info trying registry request attempt 1 at 20:45:14
+96 verbose etag "3A32K7WANJ7SNLKQ5C3Z9R596"
+97 http GET https://registry.npmjs.org/underscore
+98 verbose url raw socket.io
+99 verbose url resolving [ 'https://registry.npmjs.org/', './socket.io' ]
+100 verbose url resolved https://registry.npmjs.org/socket.io
+101 info trying registry request attempt 1 at 20:45:14
+102 verbose etag "52J9V5MO44EBFF9ABHW3RJQ22"
+103 http GET https://registry.npmjs.org/socket.io
+104 verbose url raw hbs
+105 verbose url resolving [ 'https://registry.npmjs.org/', './hbs' ]
+106 verbose url resolved https://registry.npmjs.org/hbs
+107 info trying registry request attempt 1 at 20:45:14
+108 verbose etag "4AKV1OI3Y96NRSYL3VOQEHUIF"
+109 http GET https://registry.npmjs.org/hbs
+110 verbose url raw connect-mongo
+111 verbose url resolving [ 'https://registry.npmjs.org/', './connect-mongo' ]
+112 verbose url resolved https://registry.npmjs.org/connect-mongo
+113 info trying registry request attempt 1 at 20:45:14
+114 verbose etag "76107BUTUJ06QC7IMBT572WEM"
+115 http GET https://registry.npmjs.org/connect-mongo
+116 verbose url raw mongoose
+117 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+118 verbose url resolved https://registry.npmjs.org/mongoose
+119 info trying registry request attempt 1 at 20:45:14
+120 verbose etag "1J26XAIBH6HBKEC6KW0C7CU7E"
+121 http GET https://registry.npmjs.org/mongoose
+122 http 304 https://registry.npmjs.org/js2coffee
+123 silly registry.get cb [ 304,
+123 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+123 silly registry.get     etag: '"DURCS2MDYNR28XV11VS9LZNQ7"',
+123 silly registry.get     date: 'Sat, 07 Sep 2013 00:45:14 GMT',
+123 silly registry.get     'content-length': '0' } ]
+124 verbose etag js2coffee from cache
+125 silly addNameRange number 2 { name: 'js2coffee', range: '', hasData: true }
+126 silly addNameRange versions [ 'js2coffee',
+126 silly addNameRange   [ '0.0.1',
+126 silly addNameRange     '0.0.2',
+126 silly addNameRange     '0.0.3',
+126 silly addNameRange     '0.0.4',
+126 silly addNameRange     '0.0.5',
+126 silly addNameRange     '0.1.0',
+126 silly addNameRange     '0.1.1',
+126 silly addNameRange     '0.1.2',
+126 silly addNameRange     '0.1.3',
+126 silly addNameRange     '0.2.0',
+126 silly addNameRange     '0.1.4' ] ]
+127 verbose addNamed [ 'js2coffee', '0.1.4' ]
+128 verbose addNamed [ '0.1.4', '0.1.4' ]
+129 silly lockFile e766855f-js2coffee-0-1-4 js2coffee@0.1.4
+130 verbose lock js2coffee@0.1.4 /Users/kevin/.npm/e766855f-js2coffee-0-1-4.lock
+131 verbose read json /Users/kevin/.npm/js2coffee/0.1.4/package/package.json
+132 silly lockFile e766855f-js2coffee-0-1-4 js2coffee@0.1.4
+133 silly lockFile e766855f-js2coffee-0-1-4 js2coffee@0.1.4
+134 silly lockFile 736dc332-js2coffee js2coffee@*
+135 silly lockFile 736dc332-js2coffee js2coffee@*
+136 http 200 https://registry.npmjs.org/express/3.0.6
+137 silly registry.get cb [ 200,
+137 silly registry.get   { vary: 'Accept',
+137 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+137 silly registry.get     etag: '"5DJ6YXWNYJGBIQZ3GW2CLW99I"',
+137 silly registry.get     date: 'Sat, 07 Sep 2013 00:45:14 GMT',
+137 silly registry.get     'content-type': 'application/json',
+137 silly registry.get     'content-length': '7530' } ]
+138 silly lockFile 78f5258d-js-org-express-express-3-0-6-tgz https://registry.npmjs.org/express/-/express-3.0.6.tgz
+139 verbose lock https://registry.npmjs.org/express/-/express-3.0.6.tgz /Users/kevin/.npm/78f5258d-js-org-express-express-3-0-6-tgz.lock
+140 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-3.0.6.tgz',
+140 verbose addRemoteTarball   'd274fcb868b95788bf4af62168d75d13fd77d8b4' ]
+141 info retry fetch attempt 1 at 20:45:15
+142 verbose fetch to= /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+143 http GET https://registry.npmjs.org/express/-/express-3.0.6.tgz
+144 http 200 https://registry.npmjs.org/underscore
+145 silly registry.get cb [ 200,
+145 silly registry.get   { vary: 'Accept',
+145 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+145 silly registry.get     etag: '"A8R9QWBJ5WKW79DEIDOX426QP"',
+145 silly registry.get     date: 'Sat, 07 Sep 2013 00:45:14 GMT',
+145 silly registry.get     'content-type': 'application/json',
+145 silly registry.get     'content-length': '41148' } ]
+146 silly addNameRange number 2 { name: 'underscore', range: '', hasData: true }
+147 silly addNameRange versions [ 'underscore',
+147 silly addNameRange   [ '1.0.3',
+147 silly addNameRange     '1.0.4',
+147 silly addNameRange     '1.1.0',
+147 silly addNameRange     '1.1.1',
+147 silly addNameRange     '1.1.2',
+147 silly addNameRange     '1.1.3',
+147 silly addNameRange     '1.1.4',
+147 silly addNameRange     '1.1.5',
+147 silly addNameRange     '1.1.6',
+147 silly addNameRange     '1.1.7',
+147 silly addNameRange     '1.2.0',
+147 silly addNameRange     '1.2.1',
+147 silly addNameRange     '1.2.2',
+147 silly addNameRange     '1.2.3',
+147 silly addNameRange     '1.2.4',
+147 silly addNameRange     '1.3.0',
+147 silly addNameRange     '1.3.1',
+147 silly addNameRange     '1.3.2',
+147 silly addNameRange     '1.3.3',
+147 silly addNameRange     '1.4.0',
+147 silly addNameRange     '1.4.1',
+147 silly addNameRange     '1.4.2',
+147 silly addNameRange     '1.4.3',
+147 silly addNameRange     '1.4.4',
+147 silly addNameRange     '1.5.0',
+147 silly addNameRange     '1.5.1' ] ]
+148 verbose addNamed [ 'underscore', '1.5.1' ]
+149 verbose addNamed [ '1.5.1', '1.5.1' ]
+150 silly lockFile f6569b8a-underscore-1-5-1 underscore@1.5.1
+151 verbose lock underscore@1.5.1 /Users/kevin/.npm/f6569b8a-underscore-1-5-1.lock
+152 verbose read json /Users/kevin/.npm/underscore/1.5.1/package/package.json
+153 silly lockFile f6569b8a-underscore-1-5-1 underscore@1.5.1
+154 silly lockFile f6569b8a-underscore-1-5-1 underscore@1.5.1
+155 silly lockFile 67e8a6a2-underscore underscore@*
+156 silly lockFile 67e8a6a2-underscore underscore@*
+157 http 200 https://registry.npmjs.org/hbs
+158 silly registry.get cb [ 200,
+158 silly registry.get   { vary: 'Accept',
+158 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+158 silly registry.get     etag: '"EZ4AVH4R4EYVHV9OB8YT63CJH"',
+158 silly registry.get     date: 'Sat, 07 Sep 2013 00:45:14 GMT',
+158 silly registry.get     'content-type': 'application/json',
+158 silly registry.get     'content-length': '53927' } ]
+159 http 200 https://registry.npmjs.org/connect-mongo
+160 silly registry.get cb [ 200,
+160 silly registry.get   { vary: 'Accept',
+160 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+160 silly registry.get     etag: '"4N70P415Z0SSGQQOWL9I17CTP"',
+160 silly registry.get     date: 'Sat, 07 Sep 2013 00:45:14 GMT',
+160 silly registry.get     'content-type': 'application/json',
+160 silly registry.get     'content-length': '34495' } ]
+161 http 200 https://registry.npmjs.org/express/-/express-3.0.6.tgz
+162 silly addNameRange number 2 { name: 'hbs', range: '', hasData: true }
+163 silly addNameRange versions [ 'hbs',
+163 silly addNameRange   [ '0.0.2-1',
+163 silly addNameRange     '0.0.2-2',
+163 silly addNameRange     '0.0.2-3',
+163 silly addNameRange     '0.0.3',
+163 silly addNameRange     '0.0.3-1',
+163 silly addNameRange     '0.0.3-2',
+163 silly addNameRange     '0.0.3-3',
+163 silly addNameRange     '0.0.3-4',
+163 silly addNameRange     '0.0.4',
+163 silly addNameRange     '0.0.5',
+163 silly addNameRange     '0.0.6',
+163 silly addNameRange     '0.0.7',
+163 silly addNameRange     '1.0.0',
+163 silly addNameRange     '1.0.1',
+163 silly addNameRange     '1.0.2',
+163 silly addNameRange     '1.0.3',
+163 silly addNameRange     '1.0.4',
+163 silly addNameRange     '1.0.5',
+163 silly addNameRange     '1.0.6',
+163 silly addNameRange     '1.0.7',
+163 silly addNameRange     '1.0.8',
+163 silly addNameRange     '1.0.9',
+163 silly addNameRange     '2.0.0',
+163 silly addNameRange     '2.0.1',
+163 silly addNameRange     '2.0.2',
+163 silly addNameRange     '2.1.0',
+163 silly addNameRange     '2.3.0',
+163 silly addNameRange     '2.3.1' ] ]
+164 verbose addNamed [ 'hbs', '2.3.1' ]
+165 verbose addNamed [ '2.3.1', '2.3.1' ]
+166 silly lockFile 50872366-hbs-2-3-1 hbs@2.3.1
+167 verbose lock hbs@2.3.1 /Users/kevin/.npm/50872366-hbs-2-3-1.lock
+168 silly addNameRange number 2 { name: 'connect-mongo', range: '', hasData: true }
+169 silly addNameRange versions [ 'connect-mongo',
+169 silly addNameRange   [ '0.1.0',
+169 silly addNameRange     '0.1.1',
+169 silly addNameRange     '0.1.2',
+169 silly addNameRange     '0.1.3',
+169 silly addNameRange     '0.1.4',
+169 silly addNameRange     '0.1.5',
+169 silly addNameRange     '0.1.6',
+169 silly addNameRange     '0.1.7',
+169 silly addNameRange     '0.1.8',
+169 silly addNameRange     '0.1.9',
+169 silly addNameRange     '0.2.0',
+169 silly addNameRange     '0.3.0',
+169 silly addNameRange     '0.3.1',
+169 silly addNameRange     '0.3.2',
+169 silly addNameRange     '0.3.3' ] ]
+170 verbose addNamed [ 'connect-mongo', '0.3.3' ]
+171 verbose addNamed [ '0.3.3', '0.3.3' ]
+172 silly lockFile 72403794-connect-mongo-0-3-3 connect-mongo@0.3.3
+173 verbose lock connect-mongo@0.3.3 /Users/kevin/.npm/72403794-connect-mongo-0-3-3.lock
+174 silly lockFile 248cc068-stry-npmjs-org-hbs-hbs-2-3-1-tgz https://registry.npmjs.org/hbs/-/hbs-2.3.1.tgz
+175 verbose lock https://registry.npmjs.org/hbs/-/hbs-2.3.1.tgz /Users/kevin/.npm/248cc068-stry-npmjs-org-hbs-hbs-2-3-1-tgz.lock
+176 verbose read json /Users/kevin/.npm/connect-mongo/0.3.3/package/package.json
+177 verbose addRemoteTarball [ 'https://registry.npmjs.org/hbs/-/hbs-2.3.1.tgz',
+177 verbose addRemoteTarball   '0e957f025c5f0738f7471178775460934cf1205b' ]
+178 info retry fetch attempt 1 at 20:45:15
+179 verbose fetch to= /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715289-0.9004217346664518/tmp.tgz
+180 http GET https://registry.npmjs.org/hbs/-/hbs-2.3.1.tgz
+181 silly lockFile 72403794-connect-mongo-0-3-3 connect-mongo@0.3.3
+182 silly lockFile 72403794-connect-mongo-0-3-3 connect-mongo@0.3.3
+183 silly lockFile fb805f9d-connect-mongo connect-mongo@*
+184 silly lockFile fb805f9d-connect-mongo connect-mongo@*
+185 silly shasum updated bytes 34936
+186 info shasum d274fcb868b95788bf4af62168d75d13fd77d8b4
+186 info shasum /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+187 verbose tar unpack /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+188 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+189 verbose lock /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package /Users/kevin/.npm/75b3113f-172-0-014458872843533754-package.lock
+190 silly lockFile 00d607ff-172-0-014458872843533754-tmp-tgz /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+191 verbose lock /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz /Users/kevin/.npm/00d607ff-172-0-014458872843533754-tmp-tgz.lock
+192 silly gunzTarPerm modes [ '755', '644' ]
+193 silly gunzTarPerm extractEntry package.json
+194 silly gunzTarPerm extractEntry .npmignore
+195 silly gunzTarPerm extractEntry LICENSE
+196 silly gunzTarPerm extractEntry client.js
+197 silly gunzTarPerm extractEntry index.js
+198 silly gunzTarPerm extractEntry test.js
+199 silly gunzTarPerm extractEntry .travis.yml
+200 silly gunzTarPerm extractEntry History.md
+201 silly gunzTarPerm extractEntry Makefile
+202 silly gunzTarPerm extractEntry bin/express
+203 silly gunzTarPerm extractEntry Readme.md
+204 silly gunzTarPerm extractEntry lib/application.js
+205 silly gunzTarPerm extractEntry lib/express.js
+206 silly gunzTarPerm extractEntry lib/middleware.js
+207 silly gunzTarPerm extractEntry lib/request.js
+208 silly gunzTarPerm extractEntry lib/response.js
+209 silly gunzTarPerm extractEntry lib/utils.js
+210 silly gunzTarPerm extractEntry lib/view.js
+211 silly gunzTarPerm extractEntry lib/router/index.js
+212 silly gunzTarPerm extractEntry lib/router/route.js
+213 verbose read json /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package/package.json
+214 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+215 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+216 silly lockFile 00d607ff-172-0-014458872843533754-tmp-tgz /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+217 silly lockFile 00d607ff-172-0-014458872843533754-tmp-tgz /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/tmp.tgz
+218 verbose from cache /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package/package.json
+219 verbose tar pack [ '/Users/kevin/.npm/express/3.0.6/package.tgz',
+219 verbose tar pack   '/var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package' ]
+220 verbose tarball /Users/kevin/.npm/express/3.0.6/package.tgz
+221 verbose folder /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+222 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+223 verbose lock /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package /Users/kevin/.npm/75b3113f-172-0-014458872843533754-package.lock
+224 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+225 verbose lock /Users/kevin/.npm/express/3.0.6/package.tgz /Users/kevin/.npm/b2cb07f1-in-npm-express-3-0-6-package-tgz.lock
+226 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+227 silly lockFile 75b3113f-172-0-014458872843533754-package /var/folders/pv/zv3dg_q10sn4v6lbs7k5tvym0000gn/T/npm-36522/1378514715172-0.014458872843533754/package
+228 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+229 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+230 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+231 verbose lock /Users/kevin/.npm/express/3.0.6/package /Users/kevin/.npm/c1e4713f--kevin-npm-express-3-0-6-package.lock
+232 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+233 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+234 verbose tar unpack /Users/kevin/.npm/express/3.0.6/package.tgz
+235 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+236 verbose lock /Users/kevin/.npm/express/3.0.6/package /Users/kevin/.npm/c1e4713f--kevin-npm-express-3-0-6-package.lock
+237 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+238 verbose lock /Users/kevin/.npm/express/3.0.6/package.tgz /Users/kevin/.npm/b2cb07f1-in-npm-express-3-0-6-package-tgz.lock
+239 silly gunzTarPerm modes [ '755', '644' ]
+240 silly gunzTarPerm extractEntry package.json
+241 silly gunzTarPerm extractEntry .npmignore
+242 silly gunzTarPerm extractEntry LICENSE
+243 silly gunzTarPerm extractEntry client.js
+244 silly gunzTarPerm extractEntry index.js
+245 silly gunzTarPerm extractEntry test.js
+246 silly gunzTarPerm extractEntry .travis.yml
+247 silly gunzTarPerm extractEntry History.md
+248 silly gunzTarPerm extractEntry Makefile
+249 silly gunzTarPerm extractEntry bin/express
+250 silly gunzTarPerm extractEntry Readme.md
+251 silly gunzTarPerm extractEntry lib/application.js
+252 silly gunzTarPerm extractEntry lib/express.js
+253 silly gunzTarPerm extractEntry lib/middleware.js
+254 silly gunzTarPerm extractEntry lib/request.js
+255 silly gunzTarPerm extractEntry lib/response.js
+256 silly gunzTarPerm extractEntry lib/utils.js
+257 silly gunzTarPerm extractEntry lib/view.js
+258 silly gunzTarPerm extractEntry lib/router/index.js
+259 silly gunzTarPerm extractEntry lib/router/route.js
+260 verbose read json /Users/kevin/.npm/express/3.0.6/package/package.json
+261 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+262 silly lockFile c1e4713f--kevin-npm-express-3-0-6-package /Users/kevin/.npm/express/3.0.6/package
+263 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+264 silly lockFile b2cb07f1-in-npm-express-3-0-6-package-tgz /Users/kevin/.npm/express/3.0.6/package.tgz
+265 silly shasum updated bytes 34936
+266 info shasum d274fcb868b95788bf4af62168d75d13fd77d8b4
+266 info shasum /Users/kevin/.npm/express/3.0.6/package.tgz
+267 verbose from cache /Users/kevin/.npm/express/3.0.6/package/package.json
+268 verbose chmod /Users/kevin/.npm/express/3.0.6/package.tgz 644
+269 verbose chown /Users/kevin/.npm/express/3.0.6/package.tgz [ 0, 20 ]
+270 silly lockFile 78f5258d-js-org-express-express-3-0-6-tgz https://registry.npmjs.org/express/-/express-3.0.6.tgz
+271 silly lockFile 78f5258d-js-org-express-express-3-0-6-tgz https://registry.npmjs.org/express/-/express-3.0.6.tgz
+272 silly lockFile e902e1c0-express-3-0-6 express@3.0.6
+273 silly lockFile e902e1c0-express-3-0-6 express@3.0.6
+274 error Error: EPERM, chmod '/Users/kevin/.npm/express/3.0.6/package.tgz'
+274 error  { [Error: EPERM, chmod '/Users/kevin/.npm/express/3.0.6/package.tgz']
+274 error   errno: 50,
+274 error   code: 'EPERM',
+274 error   path: '/Users/kevin/.npm/express/3.0.6/package.tgz' }
+275 error Please try running this command again as root/Administrator.
+276 error System Darwin 12.4.0
+277 error command "/Users/kevin/nvm/v0.8.20/bin/node" "/Users/kevin/nvm/v0.8.20/bin/npm" "install"
+278 error cwd /Users/kevin/projects/pennapps2013f
+279 error node -v v0.8.20
+280 error npm -v 1.2.11
+281 error path /Users/kevin/.npm/express/3.0.6/package.tgz
+282 error code EPERM
+283 error errno 50
+284 error stack Error: EPERM, chmod '/Users/kevin/.npm/express/3.0.6/package.tgz'
+285 verbose exit [ 50, true ]
