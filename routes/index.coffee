@@ -96,7 +96,7 @@ get_text = (id, cb) ->
       # actual recipe page
       $ = cheerio.load(body)
       steps = $('ol').children().text()
-      steps = steps.replace /.\)/g, ').'
+      #steps = steps.replace /.\)/g, ').'
       sentences = ("#{sentence}." for sentence in steps.split('.'))
       resp_obj.text = sentences
       cb_wf resp_obj
