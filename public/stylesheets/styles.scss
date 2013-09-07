@@ -1,3 +1,15 @@
+// Add this class to divs that you wanna animate pushing up or down
+// (needs proper positioning to work, i.e. position: relative)
+.animate-translation {
+    $transition-time: 0.5s;
+    transition: top $transition-time;
+    -webkit-transition: top $transition-time;
+    -o-transition: top $transition-time;
+    -moz-transition: top $transition-time;
+}
+
+// rest of CSS
+
 body, html {
     height: 100%;
 }
@@ -38,7 +50,7 @@ p {
 #Instruction-list {
     position: relative;
     top: 300px; // THIS SHOULD GET PUSHED UP WHEN YOU SWIPE BY XXXpx
-    
+
     .instruction {
         text-align: center;
         width: 90%;
@@ -47,3 +59,4 @@ p {
         font-size: 50px;
     }
 }
+

@@ -1,3 +1,9 @@
+.animate-translation {
+  transition: top 0.5s;
+  -webkit-transition: top 0.5s;
+  -o-transition: top 0.5s;
+  -moz-transition: top 0.5s; }
+
 body, html {
   height: 100%; }
 

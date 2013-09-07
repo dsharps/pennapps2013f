@@ -17,4 +17,15 @@ $(function(){
     for (var i = 0; i < steps.length; i++) {
         newStepView = new InstructionView({instruction: steps[i]});
     }
+
+
+    // testing push-up/down animation
+    // current in css this animation happens on hover. will change fater leap stuff is
+    
+    // USE THIS TO PUSH LIST UP BY 150px
+    $("#Instruction-list").css("top", "-=150");
+
+    // USE THIS TO PUSH LIST DOWN BY 150px
+    $("#Instruction-list").css("top", "+=150");
+
 });
