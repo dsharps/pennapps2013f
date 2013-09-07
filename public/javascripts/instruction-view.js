@@ -24,7 +24,7 @@ InstructionView = Backbone.View.extend({
         // parse string and for every 'time' encountered. for each, make a new timer
         var words = instruction.split(' ');
         var timeTypeList = ["hour", "min", "sec"];
-        console.log(words);
+        // console.log(words);
 
         // for each word in the sentence see if it contains a time type.
         // if it does, check various cases of time type, and create a timer
@@ -37,7 +37,7 @@ InstructionView = Backbone.View.extend({
             for (var j = 0; j < timeTypeList.length; j++) {
                 if (words[i].indexOf(timeTypeList[j]) != -1) {
                     timeType = timeTypeList[j];
-                    console.log(timeType);
+                    // console.log(timeType);
                 }
             }
 
@@ -51,7 +51,7 @@ InstructionView = Backbone.View.extend({
 
                     // handle num to/- num case
                     timeDuration = [time1, time2];
-                    console.log("num to/- num");
+                    // console.log("num to/- num");
 
                 } else if (i-1 >= 0) {
                     var times = words[i-1].split('-');
@@ -61,13 +61,13 @@ InstructionView = Backbone.View.extend({
 
                         // handle single case
                         timeDuration = times;
-                        console.log("single num");
+                        // console.log("single num");
                     } else if (times.length > 1) {
                         // hyphen case: 5-10 minutes
 
                         // handle hyphen case
                         timeDuration = times;
-                        console.log("num hyphen num")
+                        // console.log("num hyphen num")
                     }
 
                 }
@@ -98,7 +98,7 @@ InstructionView = Backbone.View.extend({
                 instruction: instruction
             };
             // pass params to timer object
-            console.log(params);
+            // console.log(params);
         }
 
         $(this.el).append(template);
