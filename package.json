@@ -12,6 +12,7 @@
     "underscore": "*",
     "hbs": "*",
     "mongoose": "*",
-    "connect-mongo": "*"
+    "connect-mongo": "*",
+    "quest": "~0.2.4"
   }
 }
