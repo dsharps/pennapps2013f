@@ -10,6 +10,8 @@
     "js2coffee": "*",
     "underscore": "~1.5.1",
     "hbs": "*",
-    "quest": "~0.2.4"
+    "quest": "~0.2.4",
+    "async": "~0.2.9",
+    "cheerio": "~0.12.2"
   }
 }
