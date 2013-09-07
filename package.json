@@ -11,9 +11,6 @@
     "socket.io": "*",
     "underscore": "~1.5.1",
     "hbs": "*",
-    "mongoose": "*",
-    "connect-mongo": "*",
-    "quest": "~0.2.4",
-    "qs": "~0.6.5"
+    "quest": "~0.2.4"
   }
 }
