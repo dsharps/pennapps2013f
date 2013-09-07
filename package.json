@@ -13,6 +13,7 @@
     "hbs": "*",
     "mongoose": "*",
     "connect-mongo": "*",
-    "quest": "~0.2.4"
+    "quest": "~0.2.4",
+    "qs": "~0.6.5"
   }
 }
