@@ -31,7 +31,7 @@ TimerObj = Backbone.Model.extend({
     },
     // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
     render: function(){
-      $(this.el).append(title);
+      $(this.el).append("Hi");
     }
   });
 
