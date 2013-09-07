@@ -66,6 +66,7 @@ app.get "/", home.index
 #app.get "/login", user.login_get
 #app.post "/login", user.login_post
 app.get "/recipes", home.recipes
+app.get "/recipes/text", home.retrieve_text
 
 
 server = http.createServer(app).listen app.get("port"), ->
