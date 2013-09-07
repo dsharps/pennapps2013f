@@ -17,7 +17,7 @@ $(function() {
     el: $('body'), 
     initialize: function(){
         //totalMS = 80000;
-        totalMS = 2000;
+        totalMS = 10000;
         min = Math.floor(totalMS / 60000);
         extraMS = totalMS % 60000;
         MS = 60000;
@@ -26,7 +26,8 @@ $(function() {
        this.render(); // not all views are self-rendering. This one is.
     },
 
-    update: function() {
+    updateTimer: function() {
+        console.log("update");
         time+=interval;
         this.clearCanvas();
         this.drawTimer();
@@ -51,10 +52,6 @@ $(function() {
 
     drawTimer: function()
     {
-        if(totalMS <= 0) {
-            alert("TIMER IS DONE")
-        }
-
         canvas = document.getElementById('timercanvas');
         ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -107,14 +104,13 @@ $(function() {
                     ctx.closePath();
                 };
 
-                function render() {
+                //function render() {
                     // split for min and seconds
                     // Seconds
                 segmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
                 currentSegmentSec += 1;
-                totalMS -= 1000;
                 if (currentSegmentSec < segmentsSec) {
-                    setTimeout(render, 1000);
+                    //setTimeout(render, 1000);
                 } else {
                     currentTickSec = 0;
                 }
@@ -124,18 +120,26 @@ $(function() {
                     segmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
                     currentSegmentMin += 1;
                     if (currentSegmentMin < segmentsMin) {
-                        setTimeout(render, 60000);
+                        //setTimeout(render, 60000);
                     } else {
                         currentTickMin = 0;
                     }
                 }
-            };
+            //};
 
-            render();
+            //render();
         };
 
         drawCircles(100, 100);
         //drawRing(200, 200, 90, 80, 70, 30);
+
+        console.log(time);
+        if(time >= totalMS) {
+            console.log("TIMER IS DONE");
+        }
+        else {
+            setInterval(this.updateTimer(), interval);
+        }
     },
 
     startTimer: function()
@@ -149,7 +153,7 @@ $(function() {
                     + "Sample cooking clip..." 
       $(this.el).append(template);
 
-      setInterval(this.update(), interval);
+      setInterval(this.updateTimer(), interval);
 
       var timeDisplay = min + " " + (extraMS / 1000);
       $(this.el).append(timeDisplay);
