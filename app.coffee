@@ -70,12 +70,3 @@ app.post "/login", user.login_post
 server = http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
 
-# socket.io code
-io = require("socket.io").listen(server)
-
-io.sockets.on 'connection', (socket) ->
-  socket.emit 'news', { hello: 'world'}
-  # sample event
-  socket.on 'custom_event', (data) ->
-    console.log data
-
