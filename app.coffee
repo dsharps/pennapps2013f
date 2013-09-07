@@ -3,7 +3,7 @@ Module dependencies.
 ###
 express = require 'express'
 home = require './routes/index'
-user = require './routes/user'
+#user = require './routes/user'
 http = require 'http'
 path = require 'path'
 #mongoose = require 'mongoose'
