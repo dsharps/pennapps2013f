@@ -7,8 +7,7 @@ util = require 'util'
 # * GET home page.
 #
 exports.index = (req, res) ->
-  res.render "index",
-    title: "Welcome!"
+  res.render "index"
 
 exports.recipes = (req, res) ->
   query = req.query or {}
@@ -48,5 +47,7 @@ exports.recipes = (req, res) ->
     console.log sources
     res.type 'application/json'
     res.send recipes 
+
+
 
 
