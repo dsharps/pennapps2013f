@@ -33,20 +33,23 @@ exports.recipes = (req, res) ->
   quest options, (err, resp, body) ->
     matches = body.matches
     console.log "#{matches.length} matches"
-    return res.send {error: "No matches for query"} unless matches.length > 0
+    return res.send 400, {error: "No matches for query"} unless matches.length > 0
 
     # only return recipes from Food Republic
     recipes = _.filter matches, (match) ->
-      console.log match
       return match.sourceDisplayName is 'Food Republic'
 
-    # TODO: lots of scraping
-    for match in recipes 
-      sources[match.sourceDisplayName] = 0 unless sources[match.sourceDisplayName]?
-      sources[match.sourceDisplayName]++
-    console.log sources
+#    for match in recipes 
+#      sources[match.sourceDisplayName] = 0 unless sources[match.sourceDisplayName]?
+#      sources[match.sourceDisplayName]++
+#    console.log sources
     res.type 'application/json'
-    res.send recipes 
+    return res.send 400, {error: "No recipes found after filter"} unless recipes.length > 0
+    if raw_queries.return_one?
+      r = Math.floor(Math.random() * recipes.length)
+      res.send recipes[r]
+    els
+      res.send recipes 
 
 
 
