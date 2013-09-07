@@ -3,7 +3,7 @@ $(function() {
 InstructionView = Backbone.View.extend({
     
     el: $("#Instruction-list"),
- 
+
     events: {
         //"click #play-sounds-button": "play",
     },
