@@ -1,5 +1,4 @@
 quest = require 'quest'
-qs = require 'qs'
 _ = require 'underscore'
 app_id = "757d656f"
 app_key = "b3d845556c1b281db28d32a605feac6b"
