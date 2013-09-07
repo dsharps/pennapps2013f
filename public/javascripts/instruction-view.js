@@ -31,7 +31,7 @@ InstructionView = Backbone.View.extend({
         for (var i = 0; i < words.length; i++) {
 
             var timeType = "";
-            var timeDuration = 0;
+            var timeDuration = [];
 
             // check current word in sentence to see if it contains a time type
             for (var j = 0; j < timeTypeList.length; j++) {
@@ -50,6 +50,7 @@ InstructionView = Backbone.View.extend({
                     var time2 = parseInt(words[i-3]);
 
                     // handle num to/- num case
+                    timeDuration = [time1, time2];
                     console.log("num to/- num");
 
                 } else if (i-1 >= 0) {
@@ -59,16 +60,45 @@ InstructionView = Backbone.View.extend({
                     if (times.length === 1) {
 
                         // handle single case
+                        timeDuration = times;
                         console.log("single num");
                     } else if (times.length > 1) {
                         // hyphen case: 5-10 minutes
 
                         // handle hyphen case
+                        timeDuration = times;
                         console.log("num hyphen num")
                     }
 
                 }
             }
+
+            // create new timer. convert all times to sec based off time type
+            var timeInSeconds = [];
+            switch(timeType) {
+            case "hour":
+                for (var j = 0; j < timeDuration.length; j++) {
+                    timeInSeconds.push(timeDuration[j] * 60 * 60);
+                }
+                break;
+            case "min":
+                for (var j = 0; j < timeDuration.length; j++) {
+                    timeInSeconds.push(timeDuration[j] * 60);
+                }
+                break;
+            case "sec":
+                for (var j = 0; j < timeDuration.length; j++) {
+                    timeInSeconds.push(timeDuration[j] * 1);
+                }
+            }
+
+            // CREATE NEW TIMER HERE.
+            var params = {
+                time: timeInSeconds,
+                instruction: instruction
+            };
+            // pass params to timer object
+            console.log(params);
         }
 
         $(this.el).append(template);
