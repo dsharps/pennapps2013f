@@ -5,16 +5,16 @@ $(function() {
     //####################### BackBone Models ##########################//
     //##################################################################//
 
-/*
- * Create a timer object. Contains time and instructions
- */
-TimerObj = Backbone.Model.extend({
-  defaults: {
-    time: 0, // in seconds
-    instructions: '',
-  }
+  /*
+   * Create a timer object. Contains time and instructions
+   */
+  TimerObj = Backbone.Model.extend({
+    defaults: {
+      time: 0, // in seconds
+      instructions: '',
+    }
 
-});
+  });
 
     //##################################################################//
     //######################## BackBone Views ##########################//
