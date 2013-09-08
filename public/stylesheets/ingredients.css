@@ -81,6 +81,3 @@ html {
       /* 2 */ }
     html body .cf:after {
       clear: both; }
-    ::webkit-input-placeholder {
-      color: #fff;
-    }
