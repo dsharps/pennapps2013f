@@ -89,10 +89,6 @@ $(function() {
             currentTimer.css("margin-right", "+=600");
             // console.log($('.timer'));
 
-            var index = timersCollection.indexOf($('#timer' + TID));
-            console.log("index = " + index)
-            timersCollection.splice(index, 1);
-
             setTimeout(function () {
                 currentTimer.remove();
             },
