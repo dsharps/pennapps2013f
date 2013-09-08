@@ -42,7 +42,7 @@ $(function() {
         }
         //console.log(totalMS);
         snippet = this.options.instruction;
-        totalMS = 5000;
+        //totalMS = 5000;
         min = Math.floor(totalMS / 60000) - 1;
         if(min < 0)
         {
