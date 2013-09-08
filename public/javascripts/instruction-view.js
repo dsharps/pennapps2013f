@@ -1,32 +1,31 @@
 $(function() {
 
     var timerCount = 0;
-
-    //var dsjafdsa = this.options.time[0];
-    //if time.size > 1 do some processing
-    var totalMS;
-    var min;
-    var extraMS;
-    var MS;
-    var snippet;
-
-    var time = 0;
     var interval = 1000; // ms
-    var canvas;
-    var ctx;
-    var segmentsSec = totalMS/1000;
-    var segmentsMin = min;
-    var currentSegmentSec = 0;
-    var currentSegmentMin = 0;
-
-    var updateInterval;
 
     var TimerView = Backbone.View.extend({
+
+        totalMS: 0,
+        min: 0,
+        extraMS: 0,
+        snippet: '',
+
+        time: 0,
+        canvas: null,
+        ctx: null,
+        segmentsSec: 0,
+        segmentsMin: 0,
+        currentSegmentSec: 0,
+        currentSegmentMin: 0,
+
+        updateInterval: null, 
 
     el: $('#Timer-list'), 
     initialize: function() {
         var timerID = timerCount;
         timerCount++;
+
+        //if time.size > 1 do some processing
         if(this.options.time.length > 1) 
         {
             totalMS = this.options.time[0] * 1000;    
@@ -36,30 +35,30 @@ $(function() {
             totalMS= this.options.time[0] * 1000;
         }
         snippet = this.options.instruction;
-        //totalMS = 60000;
+        //totalMS = 80000;
         min = Math.floor(totalMS / 60000);
         extraMS = totalMS % 60000;
-        MS = 60000;
-        segmentsSec = totalMS/1000;
+        //segmentsSec = totalMS/1000;
         segmentsMin = min;
-        //segmentsMin = 3;
         currentSegmentSec = 0;
         currentSegmentMin = 0;
+        time = 0;
 
       _.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
        this.render(timerID); // not all views are self-rendering. This one is.
     },
 
-    clearCanvas: function () {
-        if(canvas != null) { canvas.width = canvas.width; }
-    },
-
-
+    // Performs the drawing of the timers
     drawTimer: function(TID)
     {
+        segmentsSec = 60,
+
+        time+=interval/8;
+
         canvas = $('#timercanvas' + TID)[0];
-        console.log(canvas);
         ctx = canvas.getContext('2d');
+
+        if(canvas != null) { canvas.width = canvas.width; }
         
         toRadians = function(deg) {
             return (Math.PI / 180) * deg;
@@ -72,10 +71,10 @@ $(function() {
             var tickMin = toRadians(360) / segmentsMin;
             return tickMin * num;
         },
-        segmentSec = function(start, end) {
+        drawSegmentSec = function(start, end) {
             // Outer - seconds
-            start = start || getTickSec(currentSegmentSec);
-            end = end || getTickSec(currentSegmentSec + 1);
+            //start = start || getTickSec(currentSegmentSec);
+            //end = end || getTickSec(currentSegmentSec + 1);
             ctx.lineWidth = 20;
             ctx.strokeStyle = 'rgba(51,153,255,0.3)';
             ctx.beginPath();
@@ -83,10 +82,10 @@ $(function() {
             ctx.stroke();
             ctx.closePath();
         };
-        segmentMin = function(start, end) {
+        drawSegmentMin = function(start, end) {
             // Inner - minutes
-            start = start || getTickMin(currentSegmentMin);
-            end = end || getTickMin(currentSegmentMin + 1);
+            //start = start || getTickMin(currentSegmentMin);
+            //end = end || getTickMin(currentSegmentMin + 1);
             ctx.lineWidth = 20;
             ctx.strokeStyle = 'rgba(102,255,102,0.3)';
             ctx.beginPath();
@@ -96,16 +95,17 @@ $(function() {
         };
 
         // Seconds
-        segmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
+        drawSegmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
         if(currentSegmentSec >= 60) 
         {
-            this.clearCanvas();
+            if(canvas != null) { canvas.width = canvas.width; }
+            currentSegmentSec = 0;
         }
 
         // Min
         if((time % 60000) == 0) {
-            segmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
+            drawSegmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
             currentSegmentMin += 1;
         }
     },
@@ -121,9 +121,10 @@ $(function() {
         "</div>";
         $(this.el).append(template);
 
-        updateInterval = setInterval(function() { time+=interval;
-            self.clearCanvas();
+        // Update the timer every second (1000 ms)
+        updateInterval = setInterval(function() { 
             self.drawTimer(TID);
+            //console.log(time);
             if(time >= totalMS) {
                 console.log("TIMER IS DONE");
                 clearInterval(updateInterval);

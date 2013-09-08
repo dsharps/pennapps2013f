@@ -1,4 +1,3 @@
-var timerCount = 0;
 URL_PATH = 'http://localhost:3000'
 
 var scrollIngredientsUp = function() {
