@@ -28,4 +28,16 @@ $(function(){
     // USE THIS TO PUSH LIST DOWN BY 150px
     $("#Instruction-list").css("top", "+=150");
 
+    // USE THESE TO ANIMATE ENLARGING INSTRUCTIONS
+    // $("#SOME-INSTRUCTION-ID").addClass("active");
+    // $("#SOME-INSTRUCTION-ID").removeClass("active");
+    
+    // An example of how it animates (remove this later when incorporated into leap stuff)
+    $(".instruction").hover(function() {
+        $(this).addClass("active");
+    },
+    function() {
+        $(this).removeClass("active");
+    });
+
 });
