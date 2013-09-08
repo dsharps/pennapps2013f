@@ -33,7 +33,8 @@ p {
 #Timer-list {
   width: 100%;
   position: relative;
-  top: 0px; }
+  top: 0px;
+  white-space: nowrap; }
   #Timer-list .timer {
     background-color: #777;
     width: 95%;
