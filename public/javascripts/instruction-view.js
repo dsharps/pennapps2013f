@@ -67,7 +67,7 @@ $(function() {
         time+=interval/numActiveTimers;
         
         //console.log(time);
-        console.log($('#timer' + TID));
+        //console.log($('#timer' + TID));
         if((time) >= TMS && $('#timer' + TID).length != 0) {
             console.log("TIMER " + TID + " IS DONE");
             if(updateIntervalID)
@@ -189,7 +189,7 @@ $(function() {
         
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
-            console.log(totalMS);
+            //console.log(totalMS);
             $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
             }, interval);
 
