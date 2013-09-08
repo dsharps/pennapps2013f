@@ -57,19 +57,34 @@ p {
 
     .timer {
         background-color: #777;
-        width: 375px;
+        // width: 375px;
+        width: 95%; // temp fix for overflow on diff browser res
         margin: 12px auto;
+
+        .clock-container {
+            width: 100%;
+            text-align: center;
+        }
 
         .timercanvas {
             width: 175px;
             display: inline-block;
+            vertical-align: middle;
         }
 
         .time-remaining {
             font-size: 80px;
             display: inline-block;
             vertical-align: middle;
+        }
 
+        .snippet {
+            margin: 0px 5px;
+            padding: 10px 0;
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
     }
 }

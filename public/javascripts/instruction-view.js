@@ -138,8 +138,10 @@ $(function() {
         self = this;
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
-            + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
-            + "<p class=time-remaining>" + min + " " + (extraMS / 1000) + "</p>"
+            + "<div class='clock-container'>"
+                + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
+                + "<p class=time-remaining>" + min + " " + (extraMS / 1000) + "</p>"
+            + "</div>"
             + "<p class='snippet'>" + snippet + "</p>"
         "</div>";
         $(this.el).append(template);

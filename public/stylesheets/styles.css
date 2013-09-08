@@ -34,15 +34,26 @@ p {
   top: 0px; }
   #Timer-list .timer {
     background-color: #777;
-    width: 375px;
+    width: 95%;
     margin: 12px auto; }
+    #Timer-list .timer .clock-container {
+      width: 100%;
+      text-align: center; }
     #Timer-list .timer .timercanvas {
       width: 175px;
-      display: inline-block; }
+      display: inline-block;
+      vertical-align: middle; }
     #Timer-list .timer .time-remaining {
       font-size: 80px;
       display: inline-block;
       vertical-align: middle; }
+    #Timer-list .timer .snippet {
+      margin: 0px 5px;
+      padding: 10px 0;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
 
 #Instruction-list-container {
   background-color: #ccc;
