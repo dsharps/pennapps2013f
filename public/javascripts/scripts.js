@@ -18,7 +18,6 @@ $(function(){
         newStepView = new InstructionView({instruction: steps[i]});
     }
 
-
     // testing push-up/down animation
     // current in css this animation happens on hover. will change fater leap stuff is
     
@@ -40,4 +39,5 @@ $(function(){
         $(this).removeClass("active");
     });
 
+    //var TimerView = new TimerView();
 });

@@ -98,6 +98,7 @@ InstructionView = Backbone.View.extend({
                 instruction: instruction
             };
             // pass params to timer object
+            //var TimerView = new TimerView(params);
             // console.log(params);
         }
 
