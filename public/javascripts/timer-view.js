@@ -17,10 +17,21 @@ $(function() {
     var currentSegmentMin = 0;
 
     var updateInterval;
+
     var TimerView = Backbone.View.extend({
 
     el: $('body'), 
-    initialize: function(){
+    initialize: function(options) {
+        /*
+        if(this.options.time.length > 1) 
+        {
+            totalMS = this.options.time.length[0];    
+        }
+        else
+        {
+            totalMS= this.options.time.length[0];
+        }
+        */
         totalMS = 60000;
         min = Math.floor(totalMS / 60000);
         extraMS = totalMS % 60000;
@@ -37,8 +48,6 @@ $(function() {
 
     clearCanvas: function () {
         if(canvas != null) { canvas.width = canvas.width; }
-        //context.fillStyle = "#000000";
-        //context.fillRect(0, 0, canvas.width, canvas.height);
     },
 
 
@@ -86,27 +95,13 @@ $(function() {
         };
 
         // Seconds
-        console.log(currentSegmentSec);
         segmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
-                /*
-                if (currentSegmentSec < segmentsSec) {
-                    setTimeout(segmentSec, 1000);
-                } else {
-                    currentTickSec = 0;
-                }*/
 
         // Min
         if((time % 60000) == 0) {
-            console.log("min!");
             segmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
             currentSegmentMin += 1;
-                    /*
-                    if (currentSegmentMin < segmentsMin) {
-                        setTimeout(segmentMin, 60000);
-                    } else {
-                        currentTickMin = 0;
-                    }*/
         }
     },
 
