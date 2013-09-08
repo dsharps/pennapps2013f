@@ -53,22 +53,24 @@ $(function() {
        this.render(timerID, totalMS); // not all views are self-rendering. This one is.
     },
 
-    haltInterval: function() 
-    {
-
-    },
-
     // Performs the drawing of the timers
-    drawTimer: function(TID, TMS)
+    drawTimer: function(TID, TMS, updateIntervalID)
     {
         segmentsSec = 60 * numActiveTimers,
+
         time+=interval/8;
         
         console.log(time);
 
         if((time) >= TMS) {
             console.log("TIMER " + TID + " IS DONE");
-        
+            if(updateIntervalID)
+            {
+                clearInterval(updateIntervalID);
+                updateIntervalID = null;
+            }
+
+
             numActiveTimers--;
 
             // Insert animation?
@@ -78,6 +80,7 @@ $(function() {
         }
 
         canvas = $('#timercanvas' + TID)[0];
+        //console.log(canvas);
         ctx = canvas.getContext('2d');
 
         if(canvas != null) { canvas.width = canvas.width; }
@@ -130,6 +133,11 @@ $(function() {
         if((time % 60000) == 0) {
             drawSegmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
             currentSegmentMin += 1;
+            min--;
+            if(min < 0) 
+            {
+                min = 0;
+            }
         }
     },
 
@@ -147,17 +155,9 @@ $(function() {
         $(this.el).append(template);
 
         // Update the timer every second (1000 ms)
-        /*
-        for(var i = 0; i < (totalMS / 1000); i++)
-        {
-            setTimeout(function() { 
-                self.drawTimer(TID, TMS);
-                }, interval * i);
-        }*/
         updateIntervalID = setInterval(function() { 
             self.drawTimer(TID, TMS, updateIntervalID);
             }, interval);
-        //console.log(updateIntervalID);
     }
   });
 
@@ -181,9 +181,10 @@ InstructionView = Backbone.View.extend({
 
     render: function(){
         var instruction = this.options.instruction;
+        var elementID = this.options.elementID;
 
         var template =
-            "<div class='instruction'>"
+            "<div class='instruction' id="+elementID+">"
                 + "<p>" + instruction + "</p>"
             +"</div>";
 
