@@ -17,4 +17,5 @@ $(function(){
     for (var i = 0; i < steps.length; i++) {
         newStepView = new InstructionView({instruction: steps[i]});
     }
+    //var TimerView = new TimerView();
 });

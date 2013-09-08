@@ -75,7 +75,6 @@ $(function() {
             end = end || getTickSec(currentSegmentSec + 1);
             ctx.lineWidth = 20;
             ctx.strokeStyle = 'rgba(51,153,255,0.3)';
-            //ctx.drawImage(buffer, 0, 0);
             ctx.beginPath();
             ctx.arc(120, 120, 90, 0, end);
             ctx.stroke();
@@ -87,7 +86,6 @@ $(function() {
             end = end || getTickMin(currentSegmentMin + 1);
             ctx.lineWidth = 20;
             ctx.strokeStyle = 'rgba(102,255,102,0.3)';
-            //ctx.drawImage(buffer, 0, 0);
             ctx.beginPath();
             ctx.arc(120, 120, 60, 0, end);
             ctx.stroke();
