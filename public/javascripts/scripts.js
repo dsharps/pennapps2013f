@@ -49,6 +49,7 @@ var reject = function() {
         rejected.remove();
         //ingredientsView.remove();
         $("#ingredients-list").html('');
+        $("#ingredients").css('margin-top', '-100%');
         recipes = _.rest(recipes);
         var path = URL_PATH + "/recipes/random"
         if(recipes.length == 0) {
@@ -76,7 +77,6 @@ var moveToIngredientsView = function(query) {
         $.get(path, function(recipe) {
             recipes.push(recipe);
             ingredientsView = new IngredientsView(recipes[0]);
-            //$(".faded").css("text-align", "left");
             $("li").click(function() {
                 var classNames = $(this).attr('class').split(/\s+/);
                 for(var i = 0; i < classNames.length; i ++) {

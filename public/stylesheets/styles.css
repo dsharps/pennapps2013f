@@ -22,6 +22,7 @@ p {
   height: 100%; }
 
 #Timer-list-container {
+  display: none;
   background-color: #999;
   width: 25%;
   height: 100%;
@@ -56,6 +57,7 @@ p {
       white-space: nowrap; }
 
 #Instruction-list-container {
+  display: none;
   background-color: #ccc;
   width: 75%;
   height: 100%;

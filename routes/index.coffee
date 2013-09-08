@@ -90,8 +90,13 @@ get_text = (id, cb) ->
       quest options, cb_wf
     (response, body, cb_wf) ->
       # yummly recipe entity
+      ingredients = body.ingredientLines
+      truncated = []
+      for line in ingredients
+        i = line.indexOf(',') 
+        if i > 0 then truncated.push line.substr(0, i) else truncated.push line
       resp_obj.name = body.name
-      resp_obj.ingredients = body.ingredientLines
+      resp_obj.ingredients = truncated
       options =
         uri: body.source.sourceRecipeUrl
       quest options, cb_wf
@@ -101,7 +106,7 @@ get_text = (id, cb) ->
       steps = $('ol').children().text()
       #steps = steps.replace /.\)/g, ').'
       sentences = ("#{sentence}." for sentence in steps.split('.'))
-      resp_obj.text = sentences
+      resp_obj.text = sentences 
       cb_wf null, resp_obj
   ], cb 
 
