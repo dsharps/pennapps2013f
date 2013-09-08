@@ -124,7 +124,7 @@ $(function() {
   });
 
   // Test TimerView
-  var TimerView = new TimerView();
+  //newTimerView = new TimerView();
 });
 
 

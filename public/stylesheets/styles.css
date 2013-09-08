@@ -20,6 +20,8 @@ p {
   width: 25%;
   height: 100%;
   float: left; }
+  #Timer-list .timer {
+    width: 300px; }
 
 #Instruction-list-container {
   background-color: #ccc;

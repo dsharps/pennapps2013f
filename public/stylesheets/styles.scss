@@ -25,6 +25,10 @@ p {
     // min-width: 400px; // this is causing push down issues, figure out later
     height: 100%;
     float: left;
+
+    .timer {
+        width: 300px;
+    }
 }
 
 #Instruction-list-container {

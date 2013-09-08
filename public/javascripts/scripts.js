@@ -1,5 +1,3 @@
-var timerCount = 0;
-
 $(function(){
     // test
     var steps = [
