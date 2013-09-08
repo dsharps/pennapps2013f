@@ -39,8 +39,7 @@ p {
     transition: margin-right 1s;
     -webkit-transition: margin-right 1s;
     -o-transition: margin-right 1s;
-    -moz-transition: margin-right 1s;
-    margin-right: 0; }
+    -moz-transition: margin-right 1s; }
     #Timer-list .timer .clock-container {
       width: 100%;
       text-align: center; }
@@ -80,14 +79,13 @@ p {
     margin: 30px auto;
     font-size: 50px;
     position: relative;
-    opacity: 0.6;
     transition: font-size 0.5s, width 0.5s;
     -webkit-transition: font-size 0.5s, width 0.5s;
     -o-transition: font-size 0.5s, width 0.5s;
     -moz-transition: font-size 0.5s, width 0.5s; }
     #Instruction-list .instruction.active {
-      opacity: 1;
-    }
+      font-size: 70px;
+      width: 70%; }
 
 .slide {
   transition: text-align 0.5s, color 0.5s;

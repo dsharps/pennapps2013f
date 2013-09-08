@@ -61,7 +61,7 @@ p {
         width: 95%; // temp fix for overflow on diff browser res
         margin: 12px auto;
         @include animate(margin-right, 1s);
-        margin-right: 0;
+        // margin-right: 0;
 
         .clock-container {
             width: 100%;
