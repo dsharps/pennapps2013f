@@ -11,13 +11,22 @@ var scrollIngredientsUp = function() {
         var h = focused.height();
         parent.css('margin-top', m - h);
         focused.removeClass('focused');
-        focused.next().addClass('focused');
-        focused.next().removeClass('faded');
+        var next = focused.next();
+        if(next.length==0) {
+            // no more ingredients
+            alert("render recipe");
+        }
+        else {
+            // another li ingredient
+            focused.next().addClass('focused');
+            focused.next().removeClass('faded');
+        }
     }, 1000);
 };
 
 $(function(){
     var path = URL_PATH + "/recipes/random"
+    var recipes = [];
     // Get random recipe and render ingredients view
     $.get(path, function(recipe) {
         var ingredientsView = new IngredientsView(recipe);
