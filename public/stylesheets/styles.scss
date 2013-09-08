@@ -41,15 +41,22 @@ p {
     height: 100%;
 }
 
-#Timer-list {
+#Timer-list-container {
     background-color: #999;
     width: 25%;
-    // min-width: 400px; // this is causing push down issues, figure out later
     height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+#Timer-list {
+    width: 100%;
+    // min-width: 400px; // this is causing push down issues, figure out later
     float: left;
 
     .timer {
         width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -84,6 +91,8 @@ p {
             width: 70%;
         }
     }
+
+
 }
 
 .slide {
