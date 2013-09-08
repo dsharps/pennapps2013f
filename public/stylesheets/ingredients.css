@@ -17,25 +17,31 @@ html {
         -o-transition: margin-top 1.5s;
         -moz-transition: margin-top 1.5s; }
     html body h1 {
+      padding-top: 50px;
+      color: #fff;
       font-size: 48px;
       text-align: left;
       margin: 25px 0 0 7%; }
     html body input {
-      margin: 25px 0 0 7%;
-      height: 34px;
+      margin: 30px 0 0 7%;
+      height: 28px;
       padding: 6px 12px;
       font-size: 14px;
       line-height: 1.428571429;
-      color: #555555;
+      color: #888;
       vertical-align: middle;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
+      background-color: #fff;
+      border: 0px solid #fff;
       outline-width: 2px;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      -webkit-box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.4);
       -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
       transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+    html body #query-container {
+      background-color: #2980b9;
+    }
     html body #ingredients-list {
+      background-color: #2980b9;
       width: 100%;
       height: 100%; }
     html body #ingredients {
@@ -51,6 +57,7 @@ html {
       -o-transition: margin-top 0.5s, opacity 0.5s;
       -moz-transition: margin-top 0.5s, opacity 0.5s; }
       html body ul li {
+        color: #fff;
         font-size: 36px;
         list-style: none;
         padding-left: 0px;
@@ -66,7 +73,8 @@ html {
           margin-right: 100%;
           opacity: 0; }
         html body ul li.faded {
-          color: #7f8c8d; }
+          color: #fff;
+          opacity: 0.4; }
       html body ul.rejected {
         margin-top: 100%;
         opacity: 0; }
@@ -78,3 +86,6 @@ html {
       /* 2 */ }
     html body .cf:after {
       clear: both; }
+    ::webkit-input-placeholder {
+      color: #fff;
+    }
