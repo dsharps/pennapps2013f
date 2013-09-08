@@ -58,7 +58,7 @@ $(function() {
     {
         segmentsSec = 60 * numActiveTimers,
 
-        time+=interval/8;
+        time+=interval/numActiveTimers;
         
         //console.log(time);
 
