@@ -146,7 +146,7 @@ $(function() {
     render: function(TID, TMS){
         self = this;
 
-        var displaySecs;
+        var displaySecs = 0;
 
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
@@ -234,8 +234,7 @@ InstructionView = Backbone.View.extend({
                     var times = words[i-1].split('-');
 
                     // single number: 5 minutes
-                    if (times.length === 1) {
-
+                    if (times.length === 1 && parseInt(times[0])) {
                         // handle single case
                         timeDuration = times;
                         // console.log("single num");
@@ -243,8 +242,15 @@ InstructionView = Backbone.View.extend({
                         // hyphen case: 5-10 minutes
 
                         // handle hyphen case
+                        for (var j = 0; j < times.length; j++) {
+                            if (!parseInt(times[i])) {
+                                return;
+                            }
+                        }
                         timeDuration = times;
                         // console.log("num hyphen num")
+                    } else {
+                        return;
                     }
 
                 }
