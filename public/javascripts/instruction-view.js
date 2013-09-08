@@ -98,6 +98,10 @@ $(function() {
         // Seconds
         segmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
+        if(currentSegmentSec >= 60) 
+        {
+            this.clearCanvas();
+        }
 
         // Min
         if((time % 60000) == 0) {
