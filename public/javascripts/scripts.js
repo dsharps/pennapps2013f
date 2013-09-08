@@ -4,6 +4,9 @@ var ingredientsView = null;
 var query = '';
 URL_PATH = 'http://localhost:3000'
 
+var instructions = [];
+var activeInstruction = 0;
+
 var scrollIngredientsUp = function() {
     var focused = $(".focused")
     focused.addClass("hidden");
@@ -17,7 +20,16 @@ var scrollIngredientsUp = function() {
         var next = focused.next();
         if(next.length==0) {
             // no more ingredients
-            alert("render recipe");
+            var chosenRecipe = recipes[0];
+            for (var i = 0; i < chosenRecipe.text.length; i++) {
+               newStepView = new InstructionView({instruction: chosenRecipe.text[i], elementID: ('instruction'+i)});
+               instructions[i] = newStepView;
+            }
+            $("#instruction"+activeInstruction).addClass("active");
+
+            $('html, body').animate({
+                scrollTop: $("#Instruction-list-container").offset().top
+            }, 700);
         }
         else {
             // another li ingredient

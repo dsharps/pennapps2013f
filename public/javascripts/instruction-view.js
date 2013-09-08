@@ -60,7 +60,7 @@ $(function() {
 
         time+=interval/8;
         
-        console.log(time);
+        //console.log(time);
 
         if((time) >= TMS) {
             console.log("TIMER " + TID + " IS DONE");
