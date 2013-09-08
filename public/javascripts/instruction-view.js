@@ -20,6 +20,7 @@ $(function() {
         currentSegmentMin: 0,
 
         updateIntervalID: 0, 
+        initialCountdown: true,
 
     el: $('#Timer-list'), 
     initialize: function() {
@@ -52,6 +53,7 @@ $(function() {
         time = 0;
 
         updateIntervalID = 0;
+        initialCountdown = true;    
 
       _.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
        this.render(timerID, totalMS); // not all views are self-rendering. This one is.
@@ -184,19 +186,26 @@ $(function() {
         "<div id= 'timer" + TID + "' class='timer'>"
             + "<div class='clock-container'>"
                 + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
-                + "<p class=time-remaining>" + min + " " + displaySecs + "</p>"
+                + "<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>"
             + "</div>"
             + "<p class='snippet'>" + snippet + "</p>"
         "</div>";
         $(this.el).append(template);
 
         //this.startTimer(TID, TMS);
-
-        
+      
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
             //console.log(totalMS);
-            $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
+            if(initialCountdown)
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                initialCountdown = false;
+            }
+            else
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+            }
             }, interval);
 
         // Update the timer every second (1000 ms)
