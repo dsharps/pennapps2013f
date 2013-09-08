@@ -88,6 +88,7 @@ $(function() {
             var currentTimer = $('#timer' + TID);
             currentTimer.css("margin-right", "+=600");
             // console.log($('.timer'));
+
             setTimeout(function () {
                 currentTimer.remove();
             },
