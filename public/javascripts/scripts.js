@@ -61,8 +61,13 @@ var moveToIngredientsView = function(query) {
             recipes.push(recipe);
             ingredientsView = new IngredientsView(recipes[0]);
             //$(".faded").css("text-align", "left");
-            $(".focused").hover(function() {
-                scrollIngredientsUp();
+            $("li").click(function() {
+                var classNames = $(this).attr('class').split(/\s+/);
+                for(var i = 0; i < classNames.length; i ++) {
+                    if(classNames[i] == "focused") {
+                        scrollIngredientsUp();
+                    }
+                }
             });
         });
     });

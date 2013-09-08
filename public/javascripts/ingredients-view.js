@@ -36,9 +36,9 @@ IngredientsView = Backbone.View.extend({
         };
         template += "\n</ul>";
         $(this.el).append(template);
-        $('h1').hover(function() {
-            reject();
-        });
+//        $('h1').hover(function() {
+//            reject();
+//        });
     }
 
 
