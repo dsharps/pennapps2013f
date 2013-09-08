@@ -39,7 +39,7 @@ $(function() {
         //console.log(totalMS);
         snippet = this.options.instruction;
         //totalMS = 80000;
-        min = Math.floor(totalMS / 60000);
+        min = Math.floor(totalMS / 60000) - 1;
         extraMS = totalMS % 60000;
         //segmentsSec = totalMS/1000;
         segmentsMin = min;
@@ -56,7 +56,9 @@ $(function() {
     // Performs the drawing of the timers
     drawTimer: function(TID, TMS, updateIntervalID)
     {
-        segmentsSec = 60 * numActiveTimers,
+        segmentsSec = 60 * numActiveTimers;
+        //segmentsMin = min;
+        //console.log(segmentsMin);
 
         time+=interval/numActiveTimers;
         
@@ -124,6 +126,10 @@ $(function() {
         drawSegmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
         totalMS -= 1000 / numActiveTimers;
+        if(totalMS < 0)
+        {
+            totalMS = 0;
+        }
         if(currentSegmentSec >= 60 * numActiveTimers) 
         {
             if(canvas != null) { canvas.width = canvas.width; }
