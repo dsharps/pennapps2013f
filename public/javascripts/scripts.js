@@ -103,6 +103,23 @@ $(function(){
             moveToIngredientsView(query);
         }
     });
+
+    $(document).keydown(function(e){
+        if (e.keyCode == 38) { //up
+            $("#Instruction-list").css("top", "-=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction+1)).height())/2));
+            $("#instruction"+activeInstruction).removeClass("active");
+            activeInstruction++;
+            $("#instruction"+activeInstruction).addClass("active");
+            return false;
+        } else if (e.keyCode == 40) { //down
+            $("#Instruction-list").css("top", "+=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction-1)).height())/2));
+            $("#instruction"+activeInstruction).removeClass("active");
+            activeInstruction--;
+            $("#instruction"+activeInstruction).addClass("active");
+            return false;
+        }
+    });
+
 });
 
 //var instructions = [];
