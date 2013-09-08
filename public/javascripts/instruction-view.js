@@ -149,8 +149,8 @@ $(function() {
 
         // Min
         if((time % 60000) == 0) {
-            drawSegmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
-            currentSegmentMin += 1;
+            //drawSegmentMin(getTickMin(currentSegmentMin), getTickMin(currentSegmentMin + 1));
+            //currentSegmentMin += 1;
             min--;
             if(min < 0) 
             {
@@ -180,7 +180,7 @@ $(function() {
     render: function(TID, TMS){
         self = this;
 
-        var displaySecs = 0;
+        var displaySecs = "00";
 
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
@@ -196,6 +196,10 @@ $(function() {
       
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
+            if(displaySecs < 10)
+            {
+                displaySecs = "0" + displaySecs;
+            }
             //console.log(totalMS);
             if(initialCountdown)
             {
