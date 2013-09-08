@@ -2,6 +2,7 @@ $(function() {
 
     var timerCount = 0;
     var interval = 1000; // ms
+    var numActiveTimers = 0;
 
     var TimerView = Backbone.View.extend({
 
@@ -18,12 +19,13 @@ $(function() {
         currentSegmentSec: 0,
         currentSegmentMin: 0,
 
-        updateInterval: null, 
+        updateIntervalID: 0, 
 
     el: $('#Timer-list'), 
     initialize: function() {
         var timerID = timerCount;
         timerCount++;
+        numActiveTimers++;
 
         //if time.size > 1 do some processing
         if(this.options.time.length > 1) 
@@ -34,6 +36,7 @@ $(function() {
         {
             totalMS= this.options.time[0] * 1000;
         }
+        //console.log(totalMS);
         snippet = this.options.instruction;
         //totalMS = 80000;
         min = Math.floor(totalMS / 60000);
@@ -44,16 +47,35 @@ $(function() {
         currentSegmentMin = 0;
         time = 0;
 
+        updateIntervalID = 0;
+
       _.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
-       this.render(timerID); // not all views are self-rendering. This one is.
+       this.render(timerID, totalMS); // not all views are self-rendering. This one is.
+    },
+
+    haltInterval: function() 
+    {
+
     },
 
     // Performs the drawing of the timers
-    drawTimer: function(TID)
+    drawTimer: function(TID, TMS)
     {
-        segmentsSec = 60,
-
+        segmentsSec = 60 * numActiveTimers,
         time+=interval/8;
+        
+        console.log(time);
+
+        if((time) >= TMS) {
+            console.log("TIMER " + TID + " IS DONE");
+        
+            numActiveTimers--;
+
+            // Insert animation?
+
+            $('#timer' + TID).remove();
+            return;
+        }
 
         canvas = $('#timercanvas' + TID)[0];
         ctx = canvas.getContext('2d');
@@ -79,6 +101,7 @@ $(function() {
             ctx.strokeStyle = 'rgba(51,153,255,0.3)';
             ctx.beginPath();
             ctx.arc(120, 120, 90, 0, end);
+            //console.log(end);
             ctx.stroke();
             ctx.closePath();
         };
@@ -97,7 +120,7 @@ $(function() {
         // Seconds
         drawSegmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
-        if(currentSegmentSec >= 60) 
+        if(currentSegmentSec >= 60 * numActiveTimers) 
         {
             if(canvas != null) { canvas.width = canvas.width; }
             currentSegmentSec = 0;
@@ -111,7 +134,7 @@ $(function() {
     },
 
     // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
-    render: function(TID){
+    render: function(TID, TMS){
         self = this;
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
@@ -122,13 +145,17 @@ $(function() {
         $(this.el).append(template);
 
         // Update the timer every second (1000 ms)
-        updateInterval = setInterval(function() { 
-            self.drawTimer(TID);
-            //console.log(time);
-            if(time >= totalMS) {
-                console.log("TIMER IS DONE");
-                clearInterval(updateInterval);
-            }}, interval);
+        /*
+        for(var i = 0; i < (totalMS / 1000); i++)
+        {
+            setTimeout(function() { 
+                self.drawTimer(TID, TMS);
+                }, interval * i);
+        }*/
+        updateIntervalID = setInterval(function() { 
+            self.drawTimer(TID, TMS, updateIntervalID);
+            }, interval);
+        //console.log(updateIntervalID);
     }
   });
 
