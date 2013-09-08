@@ -2,6 +2,8 @@ var timerCount = 0;
 var recipes = [];
 var ingredientsView = null;
 var query = '';
+var pressed = false;
+var rejecting = false;
 URL_PATH = 'http://localhost:3000'
 
 var instructions = [];
@@ -24,12 +26,15 @@ var scrollIngredientsUp = function() {
             // no more ingredients
             phase = "Instructions";
             var chosenRecipe = recipes[0];
+            console.log(chosenRecipe);
             for (var i = 0; i < chosenRecipe.text.length; i++) {
                newStepView = new InstructionView({instruction: chosenRecipe.text[i], elementID: ('instruction'+i)});
                instructions[i] = newStepView;
             }
             $("#instruction"+activeInstruction).addClass("active");
 
+            $('#Timer-list-container').css('display', 'block');
+            $('#Instruction-list-container').css('display', 'block');
             $('html, body').animate({
                 scrollTop: $("#Instruction-list-container").offset().top
             }, 700);
@@ -44,18 +49,25 @@ var scrollIngredientsUp = function() {
 };
 
 var reject = function() {
+    if(rejecting==true) {
+        return false;
+    }
+    rejecting = true; 
     var rejected = $('#list');
     rejected.addClass('rejected');
     setTimeout(function() {
         rejected.remove();
         //ingredientsView.remove();
         $("#ingredients-list").html('');
+        $("#ingredients").css('margin-top', '-100%');
         recipes = _.rest(recipes);
         var path = URL_PATH + "/recipes/random"
         if(recipes.length == 0) {
             $.get(path, function(recipe) {
                 recipes.push(recipe);
                 ingredientsView = new IngredientsView(recipes[0]);
+                bindListElementListeners();
+                rejecting = false;
             });
         }
         else {
@@ -63,6 +75,8 @@ var reject = function() {
             var path = URL_PATH + "/recipes/random" + query;
             $.get(path, function(recipe) {
                 recipes.push(recipe);
+                bindListElementListeners();
+                rejecting = false;
             });
         }
     }, 1000);
@@ -77,16 +91,19 @@ var moveToIngredientsView = function(query) {
         $.get(path, function(recipe) {
             recipes.push(recipe);
             ingredientsView = new IngredientsView(recipes[0]);
-            //$(".faded").css("text-align", "left");
-            $("li").click(function() {
-                var classNames = $(this).attr('class').split(/\s+/);
-                for(var i = 0; i < classNames.length; i ++) {
-                    if(classNames[i] == "focused") {
-                        scrollIngredientsUp();
-                    }
-                }
-            });
+            bindListElementListeners();
         });
+    });
+};
+
+var bindListElementListeners = function() {
+    $("li").click(function() {
+        var classNames = $(this).attr('class').split(/\s+/);
+        for(var i = 0; i < classNames.length; i ++) {
+            if(classNames[i] == "focused") {
+                scrollIngredientsUp();
+            }
+        }
     });
 };
 
@@ -95,6 +112,10 @@ $(function(){
     $(document).keypress(function(e) {
         console.log(e);
         if (e.which == 13) {
+            if(pressed==true) {
+                return false;
+            }
+            pressed = true;
             // Enter pressed; catch query and move to next view
             var text = $('input').val();
             if(text != '') {

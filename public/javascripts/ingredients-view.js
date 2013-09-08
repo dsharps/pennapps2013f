@@ -35,10 +35,11 @@ IngredientsView = Backbone.View.extend({
             this.num_ingredients++;
         };
         template += "\n</ul>";
-        $(this.el).append(template);
-//        $('h1').hover(function() {
-//            reject();
-//        });
+        $(this.el).html(template);
+        $(this.el).css('margin-top', 0);
+        $('h1').click(function() {
+            reject();
+        });
     }
 
 

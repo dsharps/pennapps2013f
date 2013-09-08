@@ -38,31 +38,6 @@ exports.retrieve_text = (req, res) ->
     res.send 200, resp_obj 
 
 exports.random = (req, res) ->
-  if NODE_ENV is 'development'
-    mock_response = {
-      "name": "Easy Avocado Fries Recipe",
-      "ingredients": [
-        "2 large ripe avocados",
-        "1 cup all-purpose flour",
-        "3 large eggs, beaten",
-        "2 cups panko breadcrumbs",
-        "kosher salt for sprinkling",
-        "oil for deep-frying"
-      ],
-      "text": [
-        "Slice avocadoes in half, twist halves apart and remove pit.",
-        "Cut each half into three wedges and peel off outer skin.",
-        "Dredge each wedge in flour, then soak in egg (leave it in for a few seconds to allow the egg to stick to the flou).",
-        ", roll in breadcrumbs and place on a tray or platter.",
-        "Preheat fryer to 350F.",
-        "Fry avocado wedges in batches, making sure not to overcrowd the fryer.",
-        " Remove after 5 minutes, or when they're golden-brown and crisp-looking.",
-        "Drain on several layers of paper towels, sprinkle with salt and serve with your favorite dipping sauce.",
-        " ."
-      ]
-    } 
-    return res.send 200, mock_response
-
   get_recipes req.query, MAX_RECIPES, (err, recipes) ->
     #return res.send 400, err if err?
     if err?
@@ -75,6 +50,7 @@ exports.random = (req, res) ->
         console.log err
         return res.send 400, err
       res.type 'application/json'
+      console.log util.inspect resp_obj
       res.send 200, resp_obj 
 
 get_text = (id, cb) ->
@@ -90,8 +66,13 @@ get_text = (id, cb) ->
       quest options, cb_wf
     (response, body, cb_wf) ->
       # yummly recipe entity
+      ingredients = body.ingredientLines
+      truncated = []
+      for line in ingredients
+        i = line.indexOf(',') 
+        if i > 0 then truncated.push line.substr(0, i) else truncated.push line
       resp_obj.name = body.name
-      resp_obj.ingredients = body.ingredientLines
+      resp_obj.ingredients = truncated
       options =
         uri: body.source.sourceRecipeUrl
       quest options, cb_wf
@@ -101,7 +82,7 @@ get_text = (id, cb) ->
       steps = $('ol').children().text()
       #steps = steps.replace /.\)/g, ').'
       sentences = ("#{sentence}." for sentence in steps.split('.'))
-      resp_obj.text = sentences
+      resp_obj.text = sentences 
       cb_wf null, resp_obj
   ], cb 
 

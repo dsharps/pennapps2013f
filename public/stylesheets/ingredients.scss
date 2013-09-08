@@ -24,7 +24,6 @@ $side-margin: 7%;
 html {
   height: 100%;
   body {
-    font-family: 'Oxygen';
     height: 100%;
     width: 100%;
     top: 0;
@@ -34,8 +33,13 @@ html {
       height: 100%;
       margin: 0;
       top: 0;
+      #ingredients-list {
+        margin-top: -100%; 
+        @include animate(margin-top, 1.5s);
+      }
       #query-view {
         #query-container {
+          height: 100vh;
         }
       }
     }
@@ -45,7 +49,7 @@ html {
       color: #fff;
       font-size: 48px;
       text-align: left;
-      margin: 0 0 0 $side-margin;
+      margin: 25px 0 0 $side-margin;
     }
 
     input {
