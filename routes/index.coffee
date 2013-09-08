@@ -5,7 +5,7 @@ app_id = "757d656f"
 app_key = "b3d845556c1b281db28d32a605feac6b"
 util = require 'util'
 cheerio = require 'cheerio'
-MAX_RECIPES = 100
+MAX_RECIPES = 25 
 NODE_ENV = process.env.NODE_ENV or 'production'
 #
 # * GET home page.
@@ -64,7 +64,10 @@ exports.random = (req, res) ->
     return res.send 200, mock_response
 
   get_recipes req.query, MAX_RECIPES, (err, recipes) ->
-    return res.send 400, err if err?
+    #return res.send 400, err if err?
+    if err?
+      console.log 'err', err
+      return res.send 400, err
     r = Math.floor(Math.random() * recipes.length)
     id = recipes[r].id
     get_text id, (err, resp_obj) ->
@@ -99,7 +102,7 @@ get_text = (id, cb) ->
       #steps = steps.replace /.\)/g, ').'
       sentences = ("#{sentence}." for sentence in steps.split('.'))
       resp_obj.text = sentences
-      cb_wf resp_obj
+      cb_wf null, resp_obj
   ], cb 
 
 
