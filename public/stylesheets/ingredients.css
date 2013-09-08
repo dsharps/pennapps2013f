@@ -1,0 +1,40 @@
+html {
+  height: 100%; }
+
+body {
+  font-family: 'Oxygen';
+  height: 100%; }
+  body #Main {
+    height: 100%; }
+  body h1 {
+    font-size: 48px;
+    text-align: left;
+    margin: 50px 0 0 7%; }
+  body .hidden {
+    display: none; }
+  body #ingredients-list {
+    width: 100%;
+    height: 100%; }
+  body #ingredients {
+    width: 100%;
+    float: right;
+    margin: 15% 7% 0 0; }
+  body ul {
+    padding: 0px;
+    width: 100%; }
+    body ul li {
+      font-size: 36px;
+      list-style: none;
+      padding-left: 0px;
+      margin: 0 7% 0 0;
+      text-align: right; }
+    body ul .faded {
+      color: #7f8c8d; }
+  body .cf:before,
+  body .cf:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  body .cf:after {
+    clear: both; }

@@ -1,6 +1,13 @@
 var timerCount = 0;
+URL_PATH = 'http://localhost:3000'
 
 $(function(){
+//    var path = URL_PATH + "/recipes/random"
+//    // Get random recipe and render ingredients view
+//    $.get(path, function(recipe) {
+//        var ingredientsView = new IngredientsView(recipe);
+//    });
+
     // test
     var steps = [
         "Cook chicken for 5-10 hours.",
@@ -38,6 +45,4 @@ $(function(){
     function() {
         $(this).removeClass("active");
     });
-
-    //var TimerView = new TimerView();
 });
