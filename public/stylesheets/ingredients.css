@@ -10,8 +10,6 @@ body {
     font-size: 48px;
     text-align: left;
     margin: 50px 0 0 7%; }
-  body .hidden {
-    display: none; }
   body #ingredients-list {
     width: 100%;
     height: 100%; }
@@ -21,13 +19,27 @@ body {
     margin: 15% 7% 0 0; }
   body ul {
     padding: 0px;
-    width: 100%; }
+    margin-top: 0px;
+    width: 100%;
+    transition: margin-top 0.5s;
+    -webkit-transition: margin-top 0.5s;
+    -o-transition: margin-top 0.5s;
+    -moz-transition: margin-top 0.5s; }
     body ul li {
       font-size: 36px;
       list-style: none;
       padding-left: 0px;
-      margin: 0 7% 0 0;
-      text-align: right; }
+      margin-right: 7%;
+      text-align: right;
+      white-space: nowrap;
+      opacity: 1;
+      transition: margin-right 2.5s, opacity 1s;
+      -webkit-transition: margin-right 2.5s, opacity 1s;
+      -o-transition: margin-right 2.5s, opacity 1s;
+      -moz-transition: margin-right 2.5s, opacity 1s; }
+      body ul li.hidden {
+        margin-right: 100%;
+        opacity: 0; }
     body ul .faded {
       color: #7f8c8d; }
   body .cf:before,

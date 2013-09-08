@@ -82,3 +82,7 @@ p {
     }
 }
 
+.slide {
+  @include animateTwo(text-align, 0.5s, color, 0.5s);
+}
+

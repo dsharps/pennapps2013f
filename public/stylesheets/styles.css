@@ -54,3 +54,9 @@ p {
     #Instruction-list .instruction.active {
       font-size: 70px;
       width: 70%; }
+
+.slide {
+  transition: text-align 0.5s, color 0.5s;
+  -webkit-transition: text-align 0.5s, color 0.5s;
+  -o-transition: text-align 0.5s, color 0.5s;
+  -moz-transition: text-align 0.5s, color 0.5s; }

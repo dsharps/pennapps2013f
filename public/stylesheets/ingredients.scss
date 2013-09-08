@@ -1,3 +1,17 @@
+@mixin animate($attr, $transition-time) {
+    transition: $attr $transition-time;
+    -webkit-transition: $attr $transition-time;
+    -o-transition: $attr $transition-time;
+    -moz-transition: $attr $transition-time;
+}
+
+@mixin animateTwo($attr1, $transition-time1, $attr2, $transition-time2) {
+    transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -webkit-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -o-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -moz-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+}
+
 $grey: #7f8c8d;
 $side-margin: 7%;
 html {
@@ -17,10 +31,6 @@ body {
     margin: 50px 0 0 $side-margin;
   }
 
-  .hidden {
-    display: none;
-  }
-
   #ingredients-list {
     width: 100%;
     height: 100%;
@@ -35,29 +45,23 @@ body {
   ul {
     padding: 0px;
     //margin: 50px 0 0 0;
+    margin-top: 0px;
     width: 100%;
+    @include animate(margin-top, 0.5s);
     li {
       font-size: 36px;
       list-style: none;
       padding-left: 0px;
-      margin: 0 $side-margin 0 0;
+      margin-right: $side-margin;
       text-align: right;
+      white-space: nowrap;
+      opacity: 1;
+      @include animateTwo(margin-right, 2.5s, opacity, 1s);
+      &.hidden {
+        margin-right: 100%;
+        opacity: 0;
+      }
     }
-//    .slide {
-//      -webkit-animation-duration: 3s;
-//      -webkit-animation-name: slidein;
-//    }
-//    @keyframes slidein {
-//      from {
-//        margin-left: 100%;
-//        width: 300%
-//      }
-//
-//      to {
-//        margin-left: 0%;
-//        width: 100%;
-//      }
-//    }
 
     .faded {
       color: $grey; 

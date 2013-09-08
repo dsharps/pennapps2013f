@@ -25,7 +25,7 @@ IngredientsView = Backbone.View.extend({
             li_id = 'ingredient_' + i;
             if(i == 0) {
                 //template += '\n<li id=' + li_id + '>' + ingredient + "?</li>";
-                template += '\n<li id=' + li_id + ' class="slide">' + ingredient + "?</li>";
+                template += '\n<li id=' + li_id + ' class="focused">' + ingredient + "?</li>";
                 focused = i;
             }
             else {
