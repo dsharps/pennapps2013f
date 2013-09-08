@@ -106,7 +106,6 @@ $(function() {
             ctx.strokeStyle = 'rgba(51,153,255,0.3)';
             ctx.beginPath();
             ctx.arc(120, 120, 90, 0, end);
-            //console.log(end);
             ctx.stroke();
             ctx.closePath();
         };
@@ -167,7 +166,7 @@ $(function() {
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
             console.log(totalMS);
-            $('.time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
+            $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
             }, interval);
 
         // Update the timer every second (1000 ms)
