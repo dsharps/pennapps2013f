@@ -35,7 +35,12 @@ p {
   #Timer-list .timer {
     background-color: #777;
     width: 95%;
-    margin: 12px auto; }
+    margin: 12px auto;
+    transition: margin-right 1s;
+    -webkit-transition: margin-right 1s;
+    -o-transition: margin-right 1s;
+    -moz-transition: margin-right 1s;
+    margin-right: 0; }
     #Timer-list .timer .clock-container {
       width: 100%;
       text-align: center; }

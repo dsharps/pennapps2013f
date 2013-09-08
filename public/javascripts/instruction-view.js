@@ -68,7 +68,7 @@ $(function() {
         
         //console.log(time);
         console.log($('#timer' + TID));
-        if((time) >= TMS && $('#timer' + TID).length != 0) {
+        if((time) >= (TMS + 2000) && $('#timer' + TID).length != 0) {
             console.log("TIMER " + TID + " IS DONE");
             if(updateIntervalID)
             {
@@ -80,8 +80,14 @@ $(function() {
             numActiveTimers--;
 
             // Insert animation?
-
-            $('#timer' + TID).remove();
+            var currentTimer = $('#timer' + TID);
+            currentTimer.css("margin-right", "+=600");
+            // console.log($('.timer'));
+            setTimeout(function () {
+                currentTimer.remove();
+            },
+                2000
+            );
             return;
         }
 
