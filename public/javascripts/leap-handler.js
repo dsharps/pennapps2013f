@@ -56,7 +56,7 @@ $(function() {
 					gestureCount++;
 				}
 			}
-			if (gestureCount > 15) {
+			if (gestureCount > 15 && frame.hands.length == 2) {
 				alert("Order a fuckin' pizza!");
 				gestureCount = 0;
 			}
@@ -157,11 +157,12 @@ $(function() {
 									clearTimeout(otherTimer);
 									console.log("Next step (up)");
 									//console.log($("#instruction"+activeInstruction).height());
-									
-									$("#Instruction-list").css("top", "-=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction+1)).height())/2));
-									$("#instruction"+activeInstruction).removeClass("active");
-									activeInstruction++;
-									$("#instruction"+activeInstruction).addClass("active");
+									if ($("#instruction"+activeInstruction).height() > 0 && $("#instruction"+(activeInstruction + 1)).height() > 0) {
+										$("#Instruction-list").css("top", "-=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction+1)).height())/2));
+										$("#instruction"+activeInstruction).removeClass("active");
+										activeInstruction++;
+										$("#instruction"+activeInstruction).addClass("active");
+									}
 									
 									canSwipeDown = false; //disable down swipes for 3/4 of a second
 									otherTimer = setTimeout(function() {
@@ -177,10 +178,12 @@ $(function() {
 									clearTimeout(otherTimer);
 									console.log("Previous step (down)");
 									
-									$("#Instruction-list").css("top", "+=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction-1)).height())/2));
-									$("#instruction"+activeInstruction).removeClass("active");
-									activeInstruction--;
-									$("#instruction"+activeInstruction).addClass("active");
+									if ($("#instruction"+activeInstruction).height() > 0 && $("#instruction"+(activeInstruction-1)).height() > 0) {
+										$("#Instruction-list").css("top", "+=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction-1)).height())/2));
+										$("#instruction"+activeInstruction).removeClass("active");
+										activeInstruction--;
+										$("#instruction"+activeInstruction).addClass("active");
+									}
 									
 									canSwipeUp = false; //disable down swipes for 3/4 of a second
 									otherTimer = setTimeout(function() {

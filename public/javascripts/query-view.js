@@ -15,8 +15,8 @@ QueryView = Backbone.View.extend({
 
     render: function(recipe){
         var template = "<div id=query-container>"
-                        + "<h1>In my pantry, you will find</h1>"
-                        + '\n<input type="text"></input>'
+                        + "<h1>In my pantry, you would find...</h1>"
+                        + '\n<input type="text" placeholder="Food"></input>'
                         + "</div>"
         $(this.el).append(template);
     }
