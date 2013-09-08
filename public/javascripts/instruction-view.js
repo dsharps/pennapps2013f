@@ -166,7 +166,7 @@ $(function() {
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
             console.log(totalMS);
-            $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
+            $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
             }, interval);
 
         // Update the timer every second (1000 ms)
