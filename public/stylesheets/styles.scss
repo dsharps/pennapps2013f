@@ -56,8 +56,21 @@ p {
     top: 0px;
 
     .timer {
-        width: 300px;
-        margin: 0 auto;
+        background-color: #777;
+        width: 375px;
+        margin: 12px auto;
+
+        .timercanvas {
+            width: 175px;
+            display: inline-block;
+        }
+
+        .time-remaining {
+            font-size: 80px;
+            display: inline-block;
+            vertical-align: middle;
+
+        }
     }
 }
 

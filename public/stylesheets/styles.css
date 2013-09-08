@@ -33,8 +33,16 @@ p {
   position: relative;
   top: 0px; }
   #Timer-list .timer {
-    width: 300px;
-    margin: 0 auto; }
+    background-color: #777;
+    width: 375px;
+    margin: 12px auto; }
+    #Timer-list .timer .timercanvas {
+      width: 175px;
+      display: inline-block; }
+    #Timer-list .timer .time-remaining {
+      font-size: 80px;
+      display: inline-block;
+      vertical-align: middle; }
 
 #Instruction-list-container {
   background-color: #ccc;

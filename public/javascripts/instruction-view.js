@@ -115,9 +115,9 @@ $(function() {
         self = this;
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
-            + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='300' height='300'></canvas>"
-            + "<p class='snippet'>" + snippet + "</p>"
+            + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
             + "<p class=time-remaining>" + min + " " + (extraMS / 1000) + "</p>"
+            + "<p class='snippet'>" + snippet + "</p>"
         "</div>";
         $(this.el).append(template);
 
