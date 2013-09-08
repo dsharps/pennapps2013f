@@ -18,7 +18,7 @@ IngredientsView = Backbone.View.extend({
     render: function(recipe){
         var template = "<h1>Do you have ...</h1>"
                         + '\n<div id="ingredients" class="cf">'
-                        + "\n<ul>";
+                        + '\n<ul id="list">';
         var ingredients = recipe['ingredients'];
         for (var i = 0; i < ingredients.length; i++) {
             ingredient = ingredients[i];
@@ -36,6 +36,9 @@ IngredientsView = Backbone.View.extend({
         };
         template += "\n</ul>";
         $(this.el).append(template);
+//        $('h1').hover(function() {
+//            reject();
+//        });
     }
 
 

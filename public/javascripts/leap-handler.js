@@ -13,8 +13,34 @@ $(function() {
 	var timerCrank = 0;
 	var timerMin = [0, 0, 0, 0];
 
+	var selfTimer;
+	var otherTimer;
+	var canSwipeUp = true;
+	var canSwipeDown = true;
+
+	var gestureCount = 0;
+	setInterval(function() {
+		gestureCount = 0;
+	}, 1000);
+
+	var dominantDirection = function(normal) {
+		var m = Math.max(Math.abs(normal[0]), Math.abs(normal[1]), Math.abs(normal[2]));
+		if (m == Math.abs(normal[0])) {return 0;}
+		else if (m == Math.abs(normal[1])) {return 1;}
+		else {return 2};
+	}
+
 	controller.loop(function(frame){
 		//console.log(frame.pointables.length);
+		for (var i = 0; i < frame.gestures.length; i++) {
+			if (frame.gestures[i].state == "start") {
+				gestureCount++;
+			}
+		}
+		if (gestureCount > 15) {
+			alert("Order a fuckin' pizza!");
+			gestureCount = 0;
+		}
 
 		//Detect whether or not there are hands in frame
 		if (frame.hands.length > 0) {
@@ -41,6 +67,14 @@ $(function() {
 			//gesture handling
 			if (frame.gestures.length > 0) {
 				var g = frame.gestures[0];
+				if (g.type == "keyTap") {
+					for (var i = 0; i < frame.gestures.length; i++) {
+						if (frame.gestures[i] != "keyTap") {
+							g = frame.gestures[i];
+							break;
+						}
+					}
+				}
 
 				if (g.type == "circle") {
 					var isClockwise = false;
@@ -49,7 +83,23 @@ $(function() {
 				   	}
 
 					if (activeSide == "Steps"  && g.state == "stop") {
-						isClockwise ? console.log("Next step") : console.log("Previous step");
+						if (isClockwise) {
+							console.log("Next step (old)");
+
+							// $("#Instruction-list").css("top", "-=" + $("#instruction"+activeInstruction).height());
+							// $("#instruction"+activeInstruction).removeClass("active");
+							// activeInstruction++;
+							// $("#instruction"+activeInstruction).addClass("active");
+
+						}
+						else {
+							console.log("Previous step (old)");
+
+							// $("#Instruction-list").css("top", "+=" + $("#instruction"+activeInstruction).height());
+							// $("#instruction"+activeInstruction).removeClass("active");
+							// activeInstruction--;
+							// $("#instruction"+activeInstruction).addClass("active");
+						}
 					}
 
 					else if (activeSide == "Timers") {
@@ -83,12 +133,54 @@ $(function() {
 				}
 				else if (g.type == "swipe") {
 					if (activeSide == "Steps") {
-						if (g.direction[0] < 0 && g.speed > 1200 && frame.pointables.length <= 2) {
+						if (dominantDirection(g.direction) == 1 && g.state == "start") { //mostly going up
+							if (g.direction[1] > 0 && canSwipeUp && g.speed > 1200 && activeInstruction < instructions.length-1) {
+								clearTimeout(otherTimer);
+								console.log("Next step (up)");
+								//console.log($("#instruction"+activeInstruction).height());
+								
+								$("#Instruction-list").css("top", "-=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction+1)).height())/2));
+								$("#instruction"+activeInstruction).removeClass("active");
+								activeInstruction++;
+								$("#instruction"+activeInstruction).addClass("active");
+								
+								canSwipeDown = false; //disable down swipes for 3/4 of a second
+								otherTimer = setTimeout(function() {
+									canSwipeDown = true;
+								}, 750);
+
+								canSwipeUp = false; //disable up swipes for 1/10 of a second - combats double-triggers
+								selfTimer = setTimeout(function() {
+									canSwipeUp = true;
+								}, 100);
+							}
+							else if (g.direction[1] < 0 && canSwipeDown && g.speed > 1200 && activeInstruction > 0){
+								clearTimeout(otherTimer);
+								console.log("Previous step (down)");
+								
+								$("#Instruction-list").css("top", "+=" + (30 + ($("#instruction"+activeInstruction).height() + $("#instruction"+(activeInstruction-1)).height())/2));
+								$("#instruction"+activeInstruction).removeClass("active");
+								activeInstruction--;
+								$("#instruction"+activeInstruction).addClass("active");
+								
+								canSwipeUp = false; //disable down swipes for 3/4 of a second
+								otherTimer = setTimeout(function() {
+									canSwipeUp = true;
+								}, 750);
+
+								canSwipeDown = false; //disable down swipes for 1/10 of a second - combats double-triggers
+								selfTimer = setTimeout(function() {
+									canSwipeDown = true;
+								}, 100);
+							}
+						}
+						else if (dominantDirection(g.direction) == 0 && g.speed > 1200 && g.state == "start" && frame.pointables.length <= 2) {
 							//console.log(g.state);
-							if (g.state == "start") {
+							if (g.direction[0] < 0) {
 								console.log("Add new timer. Speed: " + g.speed);
 							}
 						}
+						//console.log("Normal: " + g.direction[0] + ", " + g.direction[1] + ", " + g.direction[2] + ". Speed: " + g.speed);
 					}
 				}
 				else if (g.type == "screenTap") {

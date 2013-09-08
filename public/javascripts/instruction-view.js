@@ -80,6 +80,7 @@ $(function() {
         }
 
         canvas = $('#timercanvas' + TID)[0];
+        //console.log(canvas);
         ctx = canvas.getContext('2d');
 
         if(canvas != null) { canvas.width = canvas.width; }
@@ -149,8 +150,10 @@ $(function() {
 
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
-            + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
-            + "<p class=time-remaining>" + min + " " + displaySecs + "</p>"
+            + "<div class='clock-container'>"
+                + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
+                + "<p class=time-remaining>" + min + " " + displaySecs + "</p>"
+            + "</div>"
             + "<p class='snippet'>" + snippet + "</p>"
         "</div>";
         $(this.el).append(template);
@@ -188,9 +191,10 @@ InstructionView = Backbone.View.extend({
 
     render: function(){
         var instruction = this.options.instruction;
+        var elementID = this.options.elementID;
 
         var template =
-            "<div class='instruction'>"
+            "<div class='instruction' id="+elementID+">"
                 + "<p>" + instruction + "</p>"
             +"</div>";
 

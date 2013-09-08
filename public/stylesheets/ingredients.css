@@ -1,52 +1,75 @@
 html {
-  height: 100%; }
-
-body {
-  font-family: 'Oxygen';
-  height: 100%; }
-  body #Main {
-    height: 100%; }
-  body h1 {
-    font-size: 48px;
-    text-align: left;
-    margin: 50px 0 0 7%; }
-  body #ingredients-list {
+  height: 100%;
+  overflow: hidden; }
+  html body {
+    font-family: 'Oxygen';
+    height: 100%;
     width: 100%;
-    height: 100%; }
-  body #ingredients {
-    width: 100%;
-    float: right;
-    margin: 15% 7% 0 0; }
-  body ul {
-    padding: 0px;
-    margin-top: 0px;
-    width: 100%;
-    transition: margin-top 0.5s;
-    -webkit-transition: margin-top 0.5s;
-    -o-transition: margin-top 0.5s;
-    -moz-transition: margin-top 0.5s; }
-    body ul li {
-      font-size: 36px;
-      list-style: none;
-      padding-left: 0px;
-      margin-right: 7%;
-      text-align: right;
-      white-space: nowrap;
-      opacity: 1;
-      transition: margin-right 2.5s, opacity 1s;
-      -webkit-transition: margin-right 2.5s, opacity 1s;
-      -o-transition: margin-right 2.5s, opacity 1s;
-      -moz-transition: margin-right 2.5s, opacity 1s; }
-      body ul li.hidden {
-        margin-right: 100%;
+    top: 0;
+    margin: 0; }
+    html body #Main {
+      height: 100%;
+      margin: 0;
+      top: 0; }
+    html body h1 {
+      font-size: 48px;
+      text-align: left;
+      margin: 0 0 0 7%; }
+    html body input {
+      margin: 25px 0 0 7%;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.428571429;
+      color: #555555;
+      vertical-align: middle;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      outline-width: 2px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+    html body #ingredients-list {
+      width: 100%;
+      height: 100%; }
+    html body #ingredients {
+      width: 100%;
+      float: right;
+      margin: 15% 7% 0 0; }
+    html body ul {
+      padding: 0px;
+      margin-top: 0px;
+      width: 100%;
+      transition: margin-top 0.5s, opacity 0.5s;
+      -webkit-transition: margin-top 0.5s, opacity 0.5s;
+      -o-transition: margin-top 0.5s, opacity 0.5s;
+      -moz-transition: margin-top 0.5s, opacity 0.5s; }
+      html body ul li {
+        font-size: 36px;
+        list-style: none;
+        padding-left: 0px;
+        margin-right: 7%;
+        text-align: right;
+        white-space: nowrap;
+        opacity: 1;
+        transition: margin-right 2.5s, opacity 1s;
+        -webkit-transition: margin-right 2.5s, opacity 1s;
+        -o-transition: margin-right 2.5s, opacity 1s;
+        -moz-transition: margin-right 2.5s, opacity 1s; }
+        html body ul li.hidden {
+          margin-right: 100%;
+          opacity: 0; }
+        html body ul li.faded {
+          color: #7f8c8d; }
+      html body ul.rejected {
+        margin-top: 100%;
         opacity: 0; }
-    body ul .faded {
-      color: #7f8c8d; }
-  body .cf:before,
-  body .cf:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  body .cf:after {
-    clear: both; }
+    html body .cf:before,
+    html body .cf:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    html body .cf:after {
+      clear: both; }
