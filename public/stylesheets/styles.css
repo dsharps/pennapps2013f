@@ -41,8 +41,7 @@ p {
     -o-transition: margin-right 1s;
     -moz-transition: margin-right 1s; }
     #Timer-list .timer .clock-container {
-      width: 100%;
-      text-align: center; }
+      width: 100%; }
     #Timer-list .timer .timercanvas {
       width: 175px;
       display: inline-block;
