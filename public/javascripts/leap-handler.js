@@ -46,7 +46,7 @@ $(function() {
 						if (dominantDirection(g.direction) == 0 && g.direction[0] < 0 && g.speed > 1000 && g.state == "start") { // we know it's a horizontal swipe
 							scrollIngredientsUp();
 						}
-						else if (dominantDirection(g.direction) == 1 && g.direction[1] < 0 && frame.pointables.length > 2 && g.speed > 1000) {
+						else if (dominantDirection(g.direction) == 1 && g.direction[1] < 0 && frame.pointables.length > 2 && g.speed > 1000 && g.state == "start") {
 							reject();
 						}
 					}
