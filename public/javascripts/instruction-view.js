@@ -58,11 +58,11 @@ $(function() {
     {
         segmentsSec = 60 * numActiveTimers,
 
-        time+=interval/8;
+        time+=interval/numActiveTimers;
         
         //console.log(time);
 
-        if((time) >= TMS) {
+        if((time) >= TMS && $('#timer' + TID).length < 1) {
             console.log("TIMER " + TID + " IS DONE");
             if(updateIntervalID)
             {
@@ -123,6 +123,7 @@ $(function() {
         // Seconds
         drawSegmentSec(getTickSec(currentSegmentSec), getTickSec(currentSegmentSec + 1));
         currentSegmentSec += 1;
+        totalMS -= 1000 / numActiveTimers;
         if(currentSegmentSec >= 60 * numActiveTimers) 
         {
             if(canvas != null) { canvas.width = canvas.width; }
@@ -144,15 +145,24 @@ $(function() {
     // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
     render: function(TID, TMS){
         self = this;
+
+        var displaySecs;
+
         var template =
         "<div id= 'timer" + TID + "' class='timer'>"
             + "<div class='clock-container'>"
                 + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
-                + "<p class=time-remaining>" + min + " " + (extraMS / 1000) + "</p>"
+                + "<p class=time-remaining>" + min + " " + displaySecs + "</p>"
             + "</div>"
             + "<p class='snippet'>" + snippet + "</p>"
         "</div>";
         $(this.el).append(template);
+
+        updateDisplayID = setInterval(function() {
+            displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
+            console.log(totalMS);
+            $('.time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
+            }, interval);
 
         // Update the timer every second (1000 ms)
         updateIntervalID = setInterval(function() { 
