@@ -38,6 +38,7 @@ var scrollIngredientsUp = function() {
             $('html, body').animate({
                 scrollTop: $("#Instruction-list-container").offset().top
             }, 700);
+            
         }
         else {
             // another li ingredient

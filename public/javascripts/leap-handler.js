@@ -40,7 +40,7 @@ $(function() {
 				if (frame.gestures.length > 0) {
 					var g = frame.gestures[0];
 					if (g.type == "swipe") {
-						if (dominantDirection(g.direction) == 0 && g.speed > 1000) { // we know it's a horizontal swipe
+						if (dominantDirection(g.direction) == 0 && g.direction[0] < 0 && g.speed > 1000) { // we know it's a horizontal swipe
 							scrollIngredientsUp();
 						}
 						else if (dominantDirection(g.direction) == 1 && g.direction[1] < 0 && frame.pointables.length > 2 && g.speed > 1000) {
@@ -57,7 +57,8 @@ $(function() {
 				}
 			}
 			if (gestureCount > 15 && frame.hands.length == 2) {
-				alert("Order a fuckin' pizza!");
+				window.open('http://www.dominos.com/', '_blank');
+				console.log("Pizza mode");
 				gestureCount = 0;
 			}
 
