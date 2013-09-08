@@ -80,6 +80,7 @@ $(function() {
         }
 
         canvas = $('#timercanvas' + TID)[0];
+        //console.log(canvas);
         ctx = canvas.getContext('2d');
 
         if(canvas != null) { canvas.width = canvas.width; }
@@ -178,9 +179,10 @@ InstructionView = Backbone.View.extend({
 
     render: function(){
         var instruction = this.options.instruction;
+        var elementID = this.options.elementID;
 
         var template =
-            "<div class='instruction'>"
+            "<div class='instruction' id="+elementID+">"
                 + "<p>" + instruction + "</p>"
             +"</div>";
 
