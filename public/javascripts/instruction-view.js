@@ -1,11 +1,18 @@
+/*
 timerCount = 0;
 interval = 1000; // ms
 numActiveTimers = 0;
 
 timersCollection = [];
 activeTimer = 0;
-
+*/
 $(function() {
+    var timerCount = 0;
+    var interval = 1000; // ms
+    var numActiveTimers = 0;
+
+    //var timersCollection = [];
+    //var activeTimer = 0;
 
     var TimerView = Backbone.View.extend({
 
@@ -163,6 +170,36 @@ $(function() {
         }
     },
 
+    pauseTimer: function(TID, TMS)
+    {
+        self = this;
+
+        var displaySecs = "00";
+
+        updateDisplayID = setInterval(function() {
+            displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
+            if(displaySecs < 10)
+            {
+                displaySecs = "0" + displaySecs;
+            }
+            //console.log(totalMS);
+            if(initialCountdown)
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                initialCountdown = false;
+            }
+            else
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+            }
+            }, interval);
+
+        // Update the timer every second (1000 ms)
+        updateIntervalID = setInterval(function() { 
+            self.drawTimer(TID, TMS, updateIntervalID);
+            }, interval);
+    },
+
     startTimer: function(TID, TMS) {
         self = this;
 
@@ -209,9 +246,9 @@ $(function() {
         "</div>";
         $(this.el).append(template);
 
-        this.startTimer(TID, TMS);
+        //self.startTimer(TID, TMS);
         
-        /*
+        
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
             if(displaySecs < 10)
@@ -221,12 +258,12 @@ $(function() {
             //console.log(totalMS);
             if(initialCountdown)
             {
-                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
                 initialCountdown = false;
             }
             else
             {
-                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
             }
             }, interval);
 
@@ -234,7 +271,7 @@ $(function() {
         updateIntervalID = setInterval(function() { 
             self.drawTimer(TID, TMS, updateIntervalID);
             }, interval);
-        */
+        
     }
   });
 
@@ -349,9 +386,9 @@ InstructionView = Backbone.View.extend({
             };
             // pass params to timer object
             var newTimerView = new TimerView(params);
-            timersCollection.push(newTimerView);
+            //timersCollection.push(newTimerView);
             // Use index of the selected timer as the timerID
-            //newTimerView.startTimer(TID, timersCollection[TID].);
+            //newTimerView.startTimer(TID, timersCollection[TID].totalMS);
         }
 
         $(this.el).append(template);
