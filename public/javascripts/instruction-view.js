@@ -4,6 +4,9 @@ $(function() {
     var interval = 1000; // ms
     var numActiveTimers = 0;
 
+    var timersCollection = [];
+    var activeTimer = 0;
+
     var TimerView = Backbone.View.extend({
 
         totalMS: 0,
@@ -158,42 +161,12 @@ $(function() {
             }
         }
     },
-/*
+
     startTimer: function(TID, TMS) {
-        var displaySecs = 0;
-
-            updateDisplayID = setInterval(function() {
-            displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
-            console.log(totalMS);
-            $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " " + displaySecs + "</p>");
-            }, interval);
-
-        // Update the timer every second (1000 ms)
-        updateIntervalID = setInterval(function() { 
-            self.drawTimer(TID, TMS, updateIntervalID);
-            }, interval);
-    },
-*/
-
-
-    // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
-    render: function(TID, TMS){
         self = this;
 
         var displaySecs = "00";
 
-        var template =
-        "<div id= 'timer" + TID + "' class='timer'>"
-            + "<div class='clock-container'>"
-                + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
-                + "<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>"
-            + "</div>"
-            + "<p class='snippet'>" + snippet + "</p>"
-        "</div>";
-        $(this.el).append(template);
-
-        //this.startTimer(TID, TMS);
-      
         updateDisplayID = setInterval(function() {
             displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
             if(displaySecs < 10)
@@ -216,6 +189,51 @@ $(function() {
         updateIntervalID = setInterval(function() { 
             self.drawTimer(TID, TMS, updateIntervalID);
             }, interval);
+    },
+
+
+    // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
+    render: function(TID, TMS){
+        self = this;
+
+        var displaySecs = "00";
+
+        var template =
+        "<div id= 'timer" + TID + "' class='timer'>"
+            + "<div class='clock-container'>"
+                + "<canvas class='timercanvas' id='timercanvas" + TID + "' width='240' height='240'></canvas>"
+                + "<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>"
+            + "</div>"
+            + "<p class='snippet'>" + snippet + "</p>"
+        "</div>";
+        $(this.el).append(template);
+
+        this.startTimer(TID, TMS);
+        
+        /*
+        updateDisplayID = setInterval(function() {
+            displaySecs = Math.floor(((totalMS % (1000*60*60)) % (1000*60)) / 1000);
+            if(displaySecs < 10)
+            {
+                displaySecs = "0" + displaySecs;
+            }
+            //console.log(totalMS);
+            if(initialCountdown)
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                initialCountdown = false;
+            }
+            else
+            {
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+            }
+            }, interval);
+
+        // Update the timer every second (1000 ms)
+        updateIntervalID = setInterval(function() { 
+            self.drawTimer(TID, TMS, updateIntervalID);
+            }, interval);
+        */
     }
   });
 
@@ -330,6 +348,8 @@ InstructionView = Backbone.View.extend({
             };
             // pass params to timer object
             var newTimerView = new TimerView(params);
+            timersCollection.push(newTimerView);
+            //newTimerView.startTimer(TID, TMS);
         }
 
         $(this.el).append(template);
