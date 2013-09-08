@@ -39,7 +39,7 @@ $(function(){
 
    var steps = [
        "Cook chicken for 5-10 hours.",
-       "And heat rice for 30 seconds.",
+       "And heat rice for 5 seconds.",
        "and sit for 50 to 80 minutes. watch tv for 4-5 hours",
        "take shit out of oven",
        "voila",
