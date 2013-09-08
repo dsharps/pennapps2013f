@@ -1,3 +1,25 @@
+// Add this class to divs that you wanna animate pushing up or down
+// (needs proper positioning to work, i.e. position: relative)
+@mixin animate($attr, $transition-time) {
+    transition: $attr $transition-time;
+    -webkit-transition: $attr $transition-time;
+    -o-transition: $attr $transition-time;
+    -moz-transition: $attr $transition-time;
+}
+
+@mixin animateTwo($attr1, $transition-time1, $attr2, $transition-time2) {
+    transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -webkit-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -o-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+    -moz-transition: $attr1 $transition-time1, $attr2 $transition-time2;
+}
+
+.animate-translation {
+    @include animate(top, 0.5s);
+}
+
+// rest of CSS
+
 body, html {
     height: 100%;
 }
@@ -40,14 +62,31 @@ p {
 }
 
 #Instruction-list {
+    width: 100%;
     position: relative;
     top: 300px; // THIS SHOULD GET PUSHED UP WHEN YOU SWIPE BY XXXpx
-    
+
     .instruction {
+        background-color: #444;
         text-align: center;
-        width: 90%;
+        width: 50%;
+        min-width: 50%;
+        // max-width: 50%;
         padding: 0 50px;
-        margin: 30px 0px;
+        margin: 30px auto;
         font-size: 50px;
+        position: relative;
+
+        @include animateTwo(font-size, 0.5s, width, 0.5s);
+
+        &.active {
+            font-size: 70px;
+            width: 70%;
+        }
     }
 }
+
+.slide {
+  @include animateTwo(text-align, 0.5s, color, 0.5s);
+}
+
