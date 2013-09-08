@@ -42,7 +42,7 @@ $(function() {
         }
         //console.log(totalMS);
         snippet = this.options.instruction;
-        //totalMS = 5000;
+        totalMS = 5000;
         min = Math.floor(totalMS / 60000) - 1;
         if(min < 0)
         {
@@ -88,6 +88,11 @@ $(function() {
             var currentTimer = $('#timer' + TID);
             currentTimer.css("margin-right", "+=600");
             // console.log($('.timer'));
+
+            var index = timersCollection.indexOf($('#timer' + TID));
+            console.log("index = " + index)
+            timersCollection.splice(index, 1);
+
             setTimeout(function () {
                 currentTimer.remove();
             },
