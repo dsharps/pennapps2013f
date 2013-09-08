@@ -1,11 +1,11 @@
+timerCount = 0;
+interval = 1000; // ms
+numActiveTimers = 0;
+
+timersCollection = [];
+activeTimer = 0;
+
 $(function() {
-
-    var timerCount = 0;
-    var interval = 1000; // ms
-    var numActiveTimers = 0;
-
-    var timersCollection = [];
-    var activeTimer = 0;
 
     var TimerView = Backbone.View.extend({
 
@@ -350,7 +350,8 @@ InstructionView = Backbone.View.extend({
             // pass params to timer object
             var newTimerView = new TimerView(params);
             timersCollection.push(newTimerView);
-            //newTimerView.startTimer(TID, TMS);
+            // Use index of the selected timer as the timerID
+            //newTimerView.startTimer(TID, timersCollection[TID].);
         }
 
         $(this.el).append(template);
