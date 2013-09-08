@@ -56,6 +56,10 @@ $(function(){
    // testing push-up/down animation
    // current in css this animation happens on hover. will change fater leap stuff is
    
+   // USE THIS TO PUSH TIMER LIST UP BY 300px
+   console.log($("#Timer-list"));
+   $("#Timer-list").css("top", "-=300");
+
    // USE THIS TO PUSH LIST UP BY 150px
    $("#Instruction-list").css("top", "-=150");
 

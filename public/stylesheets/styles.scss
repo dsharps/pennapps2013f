@@ -52,7 +52,8 @@ p {
 #Timer-list {
     width: 100%;
     // min-width: 400px; // this is causing push down issues, figure out later
-    float: left;
+    position: relative;
+    top: 0px;
 
     .timer {
         width: 300px;

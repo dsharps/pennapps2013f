@@ -30,7 +30,8 @@ p {
 
 #Timer-list {
   width: 100%;
-  float: left; }
+  position: relative;
+  top: 0px; }
   #Timer-list .timer {
     width: 300px;
     margin: 0 auto; }
