@@ -1,11 +1,11 @@
-/*
+
 timerCount = 0;
 interval = 1000; // ms
 numActiveTimers = 0;
 
 timersCollection = [];
 activeTimer = 0;
-*/
+
 $(function() {
     var timerCount = 0;
     var interval = 1000; // ms
@@ -79,9 +79,9 @@ $(function() {
         time+=interval/numActiveTimers;
         
         //console.log(time);
-        console.log($('#timer' + TID));
+        //console.log($('#timer' + TID));
         if((time) >= (TMS + 2000) && $('#timer' + TID).length != 0) {
-            console.log("TIMER " + TID + " IS DONE");
+            //console.log("TIMER " + TID + " IS DONE");
             if(updateIntervalID)
             {
                 clearInterval(updateIntervalID);
@@ -185,12 +185,12 @@ $(function() {
             //console.log(totalMS);
             if(initialCountdown)
             {
-                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
                 initialCountdown = false;
             }
             else
             {
-                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
             }
             }, interval);
 
@@ -258,12 +258,12 @@ $(function() {
             //console.log(totalMS);
             if(initialCountdown)
             {
-                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + (min + 1) + " : " + displaySecs + "</p>");
                 initialCountdown = false;
             }
             else
             {
-                $('#timer' + TID + '.time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
+                $('#timer' + TID + ' .time-remaining').replaceWith("<p class=time-remaining>" + min + " : " + displaySecs + "</p>");
             }
             }, interval);
 
@@ -386,7 +386,7 @@ InstructionView = Backbone.View.extend({
             };
             // pass params to timer object
             var newTimerView = new TimerView(params);
-            //timersCollection.push(newTimerView);
+            timersCollection.push(newTimerView);
             // Use index of the selected timer as the timerID
             //newTimerView.startTimer(TID, timersCollection[TID].totalMS);
         }

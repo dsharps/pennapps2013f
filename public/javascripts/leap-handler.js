@@ -6,9 +6,8 @@ $(function() {
 	var handYCoordinate = 0;
 	var bufferzone = 60; //mm of buffer around the middle line
 
-	var numTimers = 4;
-	var timerSelectHeight = 300/numTimers;
-	var timerSelectOffset = 100;
+	//var numTimers = 4;
+	
 	var activeTimer = 0;
 	var timerCrank = 0;
 	var timerMin = [0, 0, 0, 0];
@@ -32,6 +31,10 @@ $(function() {
 
 	controller.loop(function(frame){
 		//console.log(frame.pointables.length);
+		if (activeSide == "Steps") {
+			$("#timer"+activeTimer).removeClass("active");
+		}
+
 		if (phase == "Query") {
 
 		}
@@ -40,7 +43,7 @@ $(function() {
 				if (frame.gestures.length > 0) {
 					var g = frame.gestures[0];
 					if (g.type == "swipe") {
-						if (dominantDirection(g.direction) == 0 && g.direction[0] < 0 && g.speed > 1000) { // we know it's a horizontal swipe
+						if (dominantDirection(g.direction) == 0 && g.direction[0] < 0 && g.speed > 1000 && g.state == "start") { // we know it's a horizontal swipe
 							scrollIngredientsUp();
 						}
 						else if (dominantDirection(g.direction) == 1 && g.direction[1] < 0 && frame.pointables.length > 2 && g.speed > 1000) {
@@ -79,9 +82,18 @@ $(function() {
 
 				//if in timers, pick timer in focus
 				if (activeSide == "Timers") {
+					$("#timer"+activeTimer).addClass("active");
 					var oldAT = activeTimer;
-					activeTimer = Math.max(Math.min(Math.floor((handYCoordinate - timerSelectOffset)/timerSelectHeight), numTimers-1), 0);;
-					if (oldAT != activeTimer) console.log("Active Timer: " + activeTimer + "| " + + timerMin[activeTimer] + ":00");
+					var timerSelectHeight = 300/timersCollection.length;
+					var timerSelectOffset = 100;
+					//console.log("AT: " + activeTimer + ", total: " + timersCollection.length)
+					//console.log(timersCollection);
+					activeTimer = (timersCollection.length-1)-Math.max(Math.min(Math.floor((handYCoordinate - timerSelectOffset)/timerSelectHeight), timersCollection.length-1), 0);;
+					if (oldAT != activeTimer) {
+						$("#timer"+oldAT).removeClass("active");
+						$("#timer"+activeTimer).addClass("active");
+						console.log("Active Timer: " + activeTimer + "| " + + timerMin[activeTimer] + ":00");
+					}
 				}
 
 				//gesture handling
